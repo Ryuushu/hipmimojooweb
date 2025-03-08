@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2>Data Pengurus</h2>
-        <a href="{{ route('pengurus.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <a href="{{ route('anggota-pengurus.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
         <div class="table-responsive">
             <table id="data-table" class="table table-striped">
@@ -26,18 +26,18 @@
             $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('pengurus.index') }}",
+                ajax: "{{ route('anggota-pengurus.show',$id) }}",
                 columns: [{
                         data: 'id'
                     },
                     {
-                        data: 'thumbnail',
+                        data: 'img',
                         render: function(data) {
                             return `<img src="{{ url(asset('assets/uploadimg/pengurus/')) }}/${data}" width="50" height="50">`;
                         }
                     },
                     {
-                        data: 'nama'
+                        data: 'nama_anggota'
                     },
                     {
                         data: 'jabatan'

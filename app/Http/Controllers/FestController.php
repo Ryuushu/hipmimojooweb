@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\Fest;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -12,13 +13,13 @@ class FestController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Anggota::latest()->get();
+            $data = Fest::latest()->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="' . route('anggota.edit', $row->id) . '" class="btn btn-primary btn-sm">Edit</a>';
-                    $btn .= ' <form action="' . route('anggota.destroy', $row->id) . '" method="POST" style="display:inline;">
+                    $btn = '<a href="' . route('festad.edit', $row->id) . '" class="btn btn-primary btn-sm">Edit</a>';
+                    $btn .= ' <form action="' . route('festad.destroy', $row->id) . '" method="POST" style="display:inline;">
                         ' . csrf_field() . method_field("DELETE") . '
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin hapus?\')">Hapus</button>
                         </form>';
@@ -27,65 +28,62 @@ class FestController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('pages.admin.anggota.index');
+        return view('pages.admin.fest.index');
     }
 
     public function create()
     {
-        return view('pages.admin.anggota.create');
+        return view('pages.admin.fest.create');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'img' => 'image|mimes:jpeg,png,jpg,gif|max:5048',
+        $request->validate([
+            'nama_fest' => 'required|string|max:255',
+            'jadwal_fest' => 'required|string',
+            'lokasi' => 'required|string|max:255',
+            'rangkaian_acara' => 'required|string',
         ]);
 
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/anggota'), $imageName);
-            $validatedData['img'] = $imageName;
-        }
+        Fest::create([
+            'nama_fest' => $request->nama_fest,
+            'jadwal_fest' => $request->jadwal_fest,
+            'lokasi' => $request->lokasi,
+            'rangkaian_acara' => $request->rangkaian_acara,
+        ]);
 
-        Anggota::create($validatedData);
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('festad.index')->with('success', 'Festival berhasil ditambahkan!');
     }
 
     public function edit($id)
     {
-        $anggota = Anggota::where("id", $id)->first();
-        return view('pages.admin.anggota.edit', compact('anggota'));
+        $fest = Fest::where("id", $id)->first();
+        return view('pages.admin.fest.edit', compact('fest'));
     }
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'img' => 'image|mimes:jpeg,png,jpg,gif|max:5048',
+        $request->validate([
+            'nama_fest' => 'required|string|max:255',
+            'jadwal_fest' => 'required|string',
+            'lokasi' => 'required|string|max:255',
+            'rangkaian_acara' => 'required|string',
         ]);
-        $anggota = Anggota::findOrFail($id);
-        if ($request->hasFile('img')) {
-            if ($anggota->img && file_exists(public_path('assets/uploadimg/anggota/' . $anggota->img))) {
-                unlink(public_path('assets/uploadimg/anggota/' . $anggota->img));
-            }
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/anggota/'), $image);
-            $validatedData['img'] = $imageName;
-        }
 
-        // Perbarui data
-        $anggota->update($validatedData);
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil diperbarui');
+        $festival = Fest::findOrFail($id);
+        $festival->update([
+            'nama_fest' => $request->nama_fest,
+            'jadwal_fest' => $request->jadwal_fest,
+            'lokasi' => $request->lokasi,
+            'rangkaian_acara' => $request->rangkaian_acara,
+        ]);
+
+        return redirect()->route('festad.index')->with('success', 'Festival berhasil diperbarui!');
     }
-
     public function destroy($id)
     {
-        $anggota = Anggota::findOrFail($id);
-        if ($anggota->thumbnail && file_exists(public_path('assets/uploadimg/anggota/' . $anggota->img))) {
-            unlink(public_path('assets/uploadimg/anggota/' . $anggota->img));
-        }
-        $anggota->delete();
-        return redirect()->route('anggota.index')->with('success', 'pengurus berhasil dihapus.');
+        $fest = Fest::findOrFail($id);
+        $fest->delete();
+        return redirect()->route('festad.index')->with('success', 'Festival berhasil dihapus.');
     }
 }

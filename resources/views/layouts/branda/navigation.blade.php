@@ -9,15 +9,15 @@
 
             <nav id="navmenu" class="navmenu ">
                 <ul class="nav nav-underline">
-                    <li class="dropdown nav-item"><a href="/tentang-kami"><span class=" active">Tentang Kami</span> <i class="bi bi-chevron-down toggle-dropdown text-light"></i></a>
+                    <li class="dropdown nav-item "><a href="/tentang-kami" class="p-0 text-decoration-none nav-link active text-light"><span class="active ">Tentang Kami</span> <i class="bi bi-chevron-down toggle-dropdown text-light"></i></a>
                         <ul>
-                            <li><a href="/tentang-kami/sejarah">Sejarah</a></li>
+                            <li><a href="/tentang-kami/sejarah ">Sejarah</a></li>
                             <li><a href="/tentang-kami/pengurus">Organisasi</a></li>
                         </ul>
                     </li>
-                    <li><a href="/berita-dan-kegiatan" class="active">Berita dan Kegiatan</a></li>
-                    <li><a href="/fest" class="active">HIPMI Fest</a></li>
-                    <li><a href="/kontak" class="active">Kontak</a></li>
+                    <li><a href="/berita-dan-kegiatan" class="active p-0 text-decoration-none">Berita dan Kegiatan</a></li>
+                    <li><a href="/fest" class="active p-0 text-decoration-none">HIPMI Fest</a></li>
+                    <li><a href="/kontak" class="active p-0 text-decoration-none">Kontak</a></li>
                     <li> <a href="https://www.instagram.com/hipmikotamojokerto/" target="_blank" class="text-light ms-3">
                             <i class="bi bi-instagram fs-4"></i>
                         </a></li>

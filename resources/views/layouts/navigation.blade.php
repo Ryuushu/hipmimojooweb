@@ -27,9 +27,7 @@
             <li class="nav-item">
                 <a class="nav-link text-light {{ request()->routeIs('Why') ? 'active' : '' }}" href="{{ route('kenapa.index') }}">Why</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('Master Pengurus') ? 'active' : '' }}" href="{{ route('pengurus.index') }}">Master Pengurus</a>
-            </li>
+     
             <li class="nav-item">
                 <a class="nav-link text-light {{ request()->routeIs('Berita') ? 'active' : '' }}" href="{{ route('berita.index') }}">Berita</a>
             </li>
@@ -44,6 +42,12 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light {{ request()->routeIs('anggota') ? 'active' : '' }}" href="{{ route('anggota.index') }}">Anggota</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light {{ request()->routeIs('divisi') ? 'active' : '' }}" href="{{ route('divisi.index') }}">Divisi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light {{ request()->routeIs('festad') ? 'active' : '' }}" href="{{ route('festad.index') }}">Fest</a>
             </li>
         </ul>
     </nav>

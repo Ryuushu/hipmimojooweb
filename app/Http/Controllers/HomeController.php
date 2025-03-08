@@ -77,11 +77,10 @@ class HomeController extends Controller
         $kegiatanlain = Kegiatan::latest()->limit(5)->get();
         return view('pages.detailkegiatan', compact( 'data','kegiatan','kegiatanlain'));
     }
-    public function fest($id)
+    public function fest()
     {
         $data = Beranda::latest()->first();
-        $kegiatan = Kegiatan::where('id',$id)->first();
-        $kegiatanlain = Kegiatan::latest()->limit(5)->get();
-        return view('pages.detailkegiatan', compact( 'data','kegiatan','kegiatanlain'));
+        $events = Kegiatan::limit(5)->latest()->get();
+        return view('pages.fest', compact('events', 'data'));
     }
 }

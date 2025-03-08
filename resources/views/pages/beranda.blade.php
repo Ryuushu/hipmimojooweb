@@ -111,13 +111,6 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
             </div><!-- End Stats Item -->
             @endif
 
-
-
-
-
-
-
-
         </div>
 
     </div>
@@ -134,7 +127,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                     {!! optional($data)->deskripsi_hipmi !!}
                 </div>
                 <div class="d-flex mt-4">
-                    <a href="#about" class="badge rounded-pill bg-primary px-4 py-3 fs-6 m-2">Kenali Lebih Dalam</a>
+                    <a href="#about" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 m-2 fw-bold">Kenali Lebih Dalam</a>
                 </div>
             </div>
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
@@ -212,7 +205,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 
                 </div>
                 <div class="d-flex mt-4">
-                    <a href="/berita-dan-kegiatan" class="badge rounded-pill bg-primary px-4 py-2 fs-6">Baca Artikel Lainnya</a>
+                    <a href="/berita-dan-kegiatan" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 fw-bold">Baca Artikel Lainnya</a>
                 </div>
                 @endif
             </div>
@@ -240,7 +233,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 
                 </div>
                 <div class="d-flex">
-                    <a href="/berita-dan-kegiatan" class="badge rounded-pill bg-primary px-4 py-2 fs-6">Kegiatan Lainnya</a>
+                    <a href="/berita-dan-kegiatan" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 fw-bold">Kegiatan Lainnya</a>
                 </div>
                 @endif
             </div>
@@ -290,16 +283,12 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 
 <section id="about" class="about section bg-grey">
 
-    <div class="container" data-aos="fade-up">
+    <div class="" data-aos="fade-up">
         <div class="row gy-3">
             <div class="col-lg-5 d-flex flex-column justify-content-center p-5 bg-yelow" data-aos="fade-up" data-aos-delay="200">
-                <div class="container">
-
-                </div>
-                <div class="about-content ps-0 ps-lg-3">
+                <div class="about-content ps-0 ps-lg-5">
                     <h1>Keanggotaan</h1>
                     {!! optional($data)->deskripsi_keanggotaan !!}
-
                     <div class="">
                         <a href="#about" class="badge rounded-pill bg-primary px-4 py-2 fs-6">Daftar Menjadi Anggota</a>
                     </div>
@@ -324,8 +313,8 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 <section class="bg-grey">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="about-content ps-0 ps-lg-3 py-5">
+            <div class="col-lg-8 d-flex flex-column " data-aos="fade-up" data-aos-delay="200">
+                <div class="about-content ps-0 ps-lg-3">
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <h1>Why Join {{ optional($data)->title_web }}</h1>
@@ -337,7 +326,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                                 </div>
                                 <div class="ms-3">
                                     <h5 class="text-primary fw-bold">{{ $kenapa->title }}</h5>
-                                    <p class="text-description mb-0 ">
+                                    <p class="text-description mb-0 " style="text-align: justify;">
                                         {{ $kenapa->deskripsi }}
                                     </p>
                                     <button class="btn btn-link p-0 show-more">Show More</button>

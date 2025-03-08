@@ -21,8 +21,7 @@ class ContactController extends Controller
 
             // Kirim ke dua email
             Mail::to(['kzkzaj@gmail.com'])->send(new ContactMail($data));
-    
-            return response()->json(['message' => 'Email berhasil dikirim!']);
+            return response()->json(['message' => 'Email berhasil dikirim!','status'=>'ok']);
         }catch(\Throwable $e){
             return response()->json(['error' => $e->getMessage()], 200);
         }
