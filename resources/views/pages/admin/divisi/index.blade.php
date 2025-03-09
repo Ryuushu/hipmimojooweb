@@ -25,10 +25,15 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('divisi.index') }}",
-                columns: [
-                    { data: 'id' },
-                    { data: 'bidang' },
-                    { data: 'nama_devisi' },
+                columns: [{
+                        data: 'id'
+                    },
+                    {
+                        data: 'bidang'
+                    },
+                    {
+                        data: 'nama_devisi'
+                    },
                     {
                         data: 'action',
                         orderable: false,

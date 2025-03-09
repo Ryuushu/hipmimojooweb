@@ -11,9 +11,14 @@ class AnggotaPengurus extends Model
     protected $table = 'anggota_pengurus';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'devisi_id', 'nama_anggota', 'jabatan', 'img'
+        'devisi_id',
+        'nama_anggota',
+        'jabatan',
+        'img',
+        "tingkatan"
     ];
-    public function devisi() {
+    public function devisi()
+    {
         return $this->belongsTo(Divisi::class, 'devisi_id');
     }
 }

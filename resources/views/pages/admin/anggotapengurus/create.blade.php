@@ -24,6 +24,20 @@
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label class="form-label">Tingkatan</label>
+                <select name="tingkatan" class="form-control" id="">
+                    <option value="">Pilih tingkatan</option>
+                    <option value="1" {{old("tingkatan")==1?"selected":""}}>1</option>
+                    <option value="2" {{old("tingkatan")==2?"selected":""}}>2</option>
+                    <option value="3" {{old("tingkatan")==3?"selected":""}}>3</option>
+                    <option value="4" {{old("tingkatan")==4?"selected":""}}>4</option>
+                    <option value="5" {{old("tingkatan")==5?"selected":""}}>5</option>
+                </select>
+                @error("tingkatan")
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-success">Simpan</button>
             <a href="{{ route('anggota-pengurus.index',$id) }}" class="btn btn-secondary">Kembali</a>
         </form>

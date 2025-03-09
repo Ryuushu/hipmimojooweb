@@ -62,7 +62,8 @@ class AnggotaPengurusController extends Controller
         $request->validate([
             'nama_anggota' => 'required',
             'jabatan' => 'required',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            "tingkatan" => "required"
         ]);
 
         if ($request->hasFile('img')) {
@@ -76,7 +77,9 @@ class AnggotaPengurusController extends Controller
             'devisi_id' => $id,
             'nama_anggota' => $request->nama_anggota,
             'jabatan' => $request->jabatan,
-            'img' => $imageName
+            'img' => $imageName,
+            "tingkatan" => $request->tingkatan
+
         ]);
 
         return redirect()->route('anggota-pengurus.index', $id)->with('success', 'Anggota Pengurus berhasil ditambahkan.');
@@ -93,7 +96,8 @@ class AnggotaPengurusController extends Controller
         $request->validate([
             'nama_anggota' => 'required',
             'jabatan' => 'required',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'tingkatan' => "required"
         ]);
 
         $anggotaPengurus = AnggotaPengurus::find($idPengurus);
@@ -111,7 +115,8 @@ class AnggotaPengurusController extends Controller
         $anggotaPengurus->update([
             'nama_anggota' => $request->nama_anggota,
             'jabatan' => $request->jabatan,
-            'img' => $imageName
+            'img' => $imageName,
+            "tingkatan" => $request->tingkatan
         ]);
 
         return redirect()->route('anggota-pengurus.index', $id)->with('success', 'Anggota Pengurus berhasil diperbarui.');

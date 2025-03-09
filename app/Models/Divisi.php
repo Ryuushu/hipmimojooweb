@@ -18,7 +18,8 @@ class Divisi extends Model
     {
         return $this->hasMany(Proker::class, 'devisi_id');
     }
-    public function anggotaPengurus() {
+    public function anggotaPengurus()
+    {
         return $this->hasMany(AnggotaPengurus::class, 'devisi_id');
     }
 }
