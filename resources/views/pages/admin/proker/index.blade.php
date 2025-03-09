@@ -27,7 +27,7 @@
             $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('proker.show',$id) }}",
+                ajax: "{{ route('proker.index',$id) }}",
                 columns: [{
                         data: 'id'
                     },
@@ -59,7 +59,7 @@
             $(document).on('click', '.delete-btn', function() {
                 if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
                     $.ajax({
-                        url: "/pengurus/" + $(this).data('id'),
+                        url: "{{ route("proker.index",$id) }}/" + $(this).data('id'),
                         type: "DELETE",
                         data: {
                             _token: "{{ csrf_token() }}"

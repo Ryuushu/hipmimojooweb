@@ -101,7 +101,7 @@
                 <div class="p-3">
                     <h5 class="card-title text-primary">Koneksi-Solusi</h5>
                     <p class="card-text">
-                    BPC HIPMI Kota Mojokerto akan mempertemukan Anda dengan ribuan anggota lainnya, lintas generasi dan daerah.
+                        BPC HIPMI Kota Mojokerto akan mempertemukan Anda dengan ribuan anggota lainnya, lintas generasi dan daerah.
                         Perluas jangkauan koneksi Anda untuk menyelesaikan tantangan kewirausahaan Anda.
                     </p>
                 </div>

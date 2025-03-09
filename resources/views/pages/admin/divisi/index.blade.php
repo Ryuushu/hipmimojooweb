@@ -3,10 +3,11 @@
         <h2>Data Divisi</h2>
         <a href="{{ route('divisi.create') }}" class="btn btn-primary mb-3">Tambah Devisi</a>
 
-        <div class="table-responsive">
+        <div class="table-responsive table  ">
             <table id="data-table" class="table table-striped">
                 <thead>
                     <tr>
+
                         <th>ID</th>
                         <th>Bidang</th>
                         <th>Nama Devisi</th>
@@ -24,13 +25,18 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('divisi.index') }}",
-                columns: [
-                    { data: 'id' },
-                    { data: 'bidang' },
-                    { data: 'nama_devisi' },
-                    { 
-                        data: 'action', 
-                        orderable: false, 
+                columns: [{
+                        data: 'id'
+                    },
+                    {
+                        data: 'bidang'
+                    },
+                    {
+                        data: 'nama_devisi'
+                    },
+                    {
+                        data: 'action',
+                        orderable: false,
                         searchable: false
                     }
                 ]

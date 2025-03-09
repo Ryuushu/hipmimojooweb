@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2>Data Pengurus</h2>
-        <a href="{{ route('anggota-pengurus.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <a href="{{ route('anggota-pengurus.create',$id) }}" class="btn btn-primary mb-3">Tambah Data</a>
 
         <div class="table-responsive">
             <table id="data-table" class="table table-striped">
@@ -26,7 +26,7 @@
             $('#data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('anggota-pengurus.show',$id) }}",
+                ajax: "{{ route('anggota-pengurus.index',$id) }}",
                 columns: [{
                         data: 'id'
                     },
@@ -53,7 +53,7 @@
             $(document).on('click', '.delete-btn', function() {
                 if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
                     $.ajax({
-                        url: "/pengurus/" + $(this).data('id'),
+                        url: "{{ route("anggota-pengurus.index",$id) }}/" + $(this).data('id'),
                         type: "DELETE",
                         data: {
                             _token: "{{ csrf_token() }}"

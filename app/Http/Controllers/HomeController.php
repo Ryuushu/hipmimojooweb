@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use App\Models\Beranda;
 use App\Models\Berita;
+use App\Models\Divisi;
 use App\Models\Fest;
 use App\Models\Kegiatan;
 use App\Models\KegiatanSelesai;
@@ -52,9 +53,9 @@ class HomeController extends Controller
     {
 
         $data = Beranda::latest()->first();
-
         $deskripsi_kepengurusan = Beranda::latest()->first(['deskripsi_kepengurusan']);
-        return view('pages.pengurus', compact("deskripsi_kepengurusan", 'data'));
+        $divisi = Divisi::get();
+        return view('pages.pengurus', compact("deskripsi_kepengurusan", 'data', "divisi"));
     }
 
     public function beritakegiatan()
@@ -102,13 +103,12 @@ class HomeController extends Controller
                 'monitoring_evaluasi' => $item->monitoring_evaluasi
             ];
         }
-        return view('pages.proker', compact('groupedData','data'));
-       
+        return view('pages.proker', compact('groupedData', 'data'));
     }
     public function detailfest($id)
     {
         $data = Beranda::latest()->first();
         $fest = Fest::where('id', $id)->first();
-        return view('pages.detailfest', compact('data','fest'));
+        return view('pages.detailfest', compact('data', 'fest'));
     }
 }
