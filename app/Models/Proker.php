@@ -14,7 +14,7 @@ class Proker extends Model
         'devisi_id',
         'ajuan_proker',
         'rencana_pelaksanaan',
-        'rencana_anggaran',
+        'progress',
         'monitoring_evaluasi'
     ];
     public function devisi()

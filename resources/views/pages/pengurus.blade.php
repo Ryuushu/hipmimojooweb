@@ -2,9 +2,9 @@
 @section('konten')
 <!-- Hero Section -->
 
-<div class="bg-light mt-5">
+<section class="bg-light mt-5">
     <h1 class="text-center my-3">Setruktur Organisasi</h1>
-    <div class="bg-primary" data-aos="fade-up" data-aos-delay="200" style="background-image: url('{{ asset("assets/img/Group-history.png") }}'); background-size: cover; background-repeat: repeat;">
+    <div class="bg-utama" data-aos="fade-up" data-aos-delay="200" style="background-image: url('{{ asset("assets/img/Group-history.png") }}'); background-size: cover; background-repeat: repeat;">
         <div class="row">
             <div class="col-lg-7 d-flex flex-column justify-content-center p-5">
 
@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold">
-                                    <h2><a href="/tentang-kami">Tentang Kami</a></h2>
+                                    <h2><a href="/tentang-kami" class="text-utama text-decoration-none">Tentang Kami</a></h2>
                                 </span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold ">
-                                    <h2><a href="/tentang-kami/sejarah">Sejarah</a></h2>
+                                    <h2><a href="/tentang-kami/sejarah" class="text-utama text-decoration-none">Sejarah</a></h2>
                                 </span>
                             </div>
                         </div>
@@ -47,7 +47,19 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold">
-                                    <h2><a href="/tentang-kami/pengurus">Struktur Organisasi</a></h2>
+                                    <h2><a href="/tentang-kami/pengurus" class="text-utama text-decoration-none">Struktur Organisasi</a></h2>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <div class="row align-items-center justify-content-center border-bottom">
+                            <div class="col-1">
+                                <i class="bi bi-chevron-right text-primary"></i>
+                            </div>
+                            <div class="col-11">
+                                <span class="fw-semibold">
+                                    <h2><a href="/tentang-kami/proker" class="text-utama text-decoration-none">Program Kerja</a></h2>
                                 </span>
                             </div>
                         </div>
@@ -58,7 +70,7 @@
         </div>
     </div>
 
-</div>
+</section>
 
 
 @endsection

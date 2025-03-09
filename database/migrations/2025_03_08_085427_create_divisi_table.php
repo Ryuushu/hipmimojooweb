@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
+            $table->string('bidang');
             $table->string('nama_devisi');
             $table->timestamps();
         });

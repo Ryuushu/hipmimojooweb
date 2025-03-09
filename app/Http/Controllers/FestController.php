@@ -40,6 +40,7 @@ class FestController extends Controller
     {
         $request->validate([
             'nama_fest' => 'required|string|max:255',
+            'deskripsi_fest' => 'required|string',
             'jadwal_fest' => 'required|string',
             'lokasi' => 'required|string|max:255',
             'rangkaian_acara' => 'required|string',
@@ -47,6 +48,7 @@ class FestController extends Controller
 
         Fest::create([
             'nama_fest' => $request->nama_fest,
+            'deskripsi_fest' => $request->deskripsi_fest,
             'jadwal_fest' => $request->jadwal_fest,
             'lokasi' => $request->lokasi,
             'rangkaian_acara' => $request->rangkaian_acara,
@@ -65,6 +67,7 @@ class FestController extends Controller
     {
         $request->validate([
             'nama_fest' => 'required|string|max:255',
+            'deskripsi_fest' => 'required|string',
             'jadwal_fest' => 'required|string',
             'lokasi' => 'required|string|max:255',
             'rangkaian_acara' => 'required|string',
@@ -73,6 +76,7 @@ class FestController extends Controller
         $festival = Fest::findOrFail($id);
         $festival->update([
             'nama_fest' => $request->nama_fest,
+            'deskripsi_fest' => $request->deskripsi_fest,
             'jadwal_fest' => $request->jadwal_fest,
             'lokasi' => $request->lokasi,
             'rangkaian_acara' => $request->rangkaian_acara,

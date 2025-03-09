@@ -47,6 +47,37 @@
         </form>
     </div>
 
+    @section('scripts')
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->
+    <script>
+        let editorInstance; // Simpan editor di variabel global
 
+        ClassicEditor.create(document.querySelector('#progress'))
+            .then(editor => {
+                editorInstance = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+            ClassicEditor.create(document.querySelector('#monitoring_evaluasi'))
+            .then(editor => {
+                editorInstance = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        document.querySelector("form").addEventListener("submit", function(event) {
+            // Ambil data dari CKEditor dan simpan ke textarea sebelum submit
+            document.querySelector("#progress").value = editorInstance.getData();
+            document.querySelector("#monitoring_evaluasi").value = editorInstance.getData();
+            // Cek jika kosong
+            if (!editorInstance.getData().trim()) {
+                alert("Rangkaian Acara harus diisi!");
+                event.preventDefault(); // Hentikan submit jika kosong
+            }
+        });
+    </script>
+    @endsection
 
 </x-app-layout>

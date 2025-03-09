@@ -1,10 +1,10 @@
-<footer class="bg-dark text-white py-5 mt-4">
+<footer class="text-white py-5 mt-4" style="background-color: #07225E;">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <h5>Sekertariat BPC Hipmi kota mojokerto</h5>
                 <p><i class="bi bi-geo-alt"></i> Jl. Empunala No. 234, Kelurahan Kedundung, Kecamatan Magersari
-Kota Mojokerto – 61316, INDONESIA</p>
+                    Kota Mojokerto – 61316, INDONESIA</p>
                 <p><i class="bi bi-envelope"></i> hipmikotamojokerto@gmail.com / info@hipmimojokertokota.org
                 </p>
                 <p><i class="bi bi-telephone"></i> TEL: 008-155-221-124</p>
@@ -29,7 +29,7 @@ Kota Mojokerto – 61316, INDONESIA</p>
                 </form>
             </div>
             <div class="col-lg-2 text-center">
-                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 100px;">
+                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 270px;">
             </div>
         </div>
     </div>

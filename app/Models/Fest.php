@@ -12,6 +12,7 @@ class Fest extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'nama_fest',
+        'deskripsi_fest',
         'jadwal_fest',
         'lokasi',
         'rangkaian_acara',

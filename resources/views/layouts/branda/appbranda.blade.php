@@ -10,7 +10,6 @@
 
     <!-- Favicons -->
     <link href="{{ asset("assets/img/Logo hip.png") }}" rel="icon">
-    <link href="{{ asset("assets/img/apple-touch-icon.png") }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -25,7 +24,6 @@
     <link href="{{ asset("assets/vendor/swiper/swiper-bundle.min.css") }}" rel="stylesheet">
     <link href="{{ asset("assets/css/main.css") }}" rel="stylesheet">
     <style>
-        
 
         .bg-grey {
             background-color: #EEF1F8 !important;
@@ -50,11 +48,16 @@
         .bg-light {
             background-color: #fff !important;
         }
+        .bg-utama {
+            background-color: #07225E !important;
+        }
 
         .text-yelow {
             color: #EFD43F
         }
-
+        .text-utama{
+            color: #07225E !important;
+        }
         .text-primary {
             color: #07225E !important;
         }
@@ -88,7 +91,7 @@
         .timeline-date {
             background: #ffc107;
             color: #000;
-            padding: 10px 15px;
+            padding: 20px 20px;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;

@@ -9,6 +9,7 @@
                     <tr>
 
                         <th>ID</th>
+                        <th>Bidang</th>
                         <th>Nama Devisi</th>
                         <th>Aksi</th>
                     </tr>
@@ -24,12 +25,10 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('divisi.index') }}",
-                columns: [{
-                        data: 'id'
-                    },
-                    {
-                        data: 'nama_devisi'
-                    },
+                columns: [
+                    { data: 'id' },
+                    { data: 'bidang' },
+                    { data: 'nama_devisi' },
                     {
                         data: 'action',
                         orderable: false,

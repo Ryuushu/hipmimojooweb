@@ -4,47 +4,84 @@
 <div class="imgbac">
     <div class="container">
         <div class="header position-relative d-flex align-items-center justify-content-between" style="background-color: rgba(0,0,0,0);">
-            <a href="/" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="">
+            <a href="/" class="logo d-flex align-items-center text-decoration-none">
+                <img src="{{ asset('assets/img/Logo hip.png') }}" alt="">
                 <h2 class="sitename text-light">{{ optional($data)->title_web }}</h2>
             </a>
 
-            <nav id="navmenu" class="navmenu ">
+            <nav id="navmenu" class="navmenu">
                 <ul class="nav nav-underline">
-                    <li class="dropdown nav-item"><a href="/tentang-kami"><span class=" active">Tentang Kami</span> <i class="bi bi-chevron-down toggle-dropdown text-light"></i></a>
+                    <!-- Tentang Kami -->
+                    <li class="dropdown nav-item">
+                        <a href="/tentang-kami"
+                            class="p-0 text-decoration-none nav-link text-light {{ Request::is('tentang-kami*') ? 'active' : '' }}">
+                            <span class="{{ Request::is('tentang-kami*') ? 'active' : '' }}">Tentang Kami</span>
+                            <i class="bi bi-chevron-down toggle-dropdown text-light"></i>
+                        </a>
                         <ul>
-                            <li><a href="/tentang-kami/sejarah">Sejarah</a></li>
-                            <li><a href="/tentang-kami/pengurus">Organisasi</a></li>
+                            <li><a href="/tentang-kami/sejarah"
+                                    class="{{ Request::is('tentang-kami/sejarah') ? 'active' : '' }}">Sejarah</a></li>
+                            <li><a href="/tentang-kami/pengurus"
+                                    class="{{ Request::is('tentang-kami/pengurus') ? 'active' : '' }}">Organisasi</a></li>
+                            <li><a href="/tentang-kami/proker"
+                                    class="{{ Request::is('tentang-kami/proker') ? 'active' : '' }}">Program Kerja</a></li>
                         </ul>
                     </li>
-                    <li><a href="/berita-dan-kegiatan" class="active">Berita dan Kegiatan</a></li>
-                    <li><a href="/kontak" class="active">Kontak</a></li>
-                    <li> <a href="https://www.instagram.com/hipmikotamojokerto/" target="_blank" class="text-light ms-3">
+
+                    <!-- Berita dan Kegiatan -->
+                    <li>
+                        <a href="/berita-dan-kegiatan"
+                            class="p-0 text-decoration-none nav-link text-light {{ Request::is('berita-dan-kegiatan') ? 'active' : '' }}">
+                            Berita dan Kegiatan
+                        </a>
+                    </li>
+
+                    <!-- HIPMI Fest -->
+                    <li>
+                        <a href="/fest"
+                            class="p-0 text-decoration-none nav-link text-light {{ Request::is('fest') ? 'active' : '' }}">
+                            HIPMI Fest
+                        </a>
+                    </li>
+
+                    <!-- Kontak -->
+                    <li>
+                        <a href="/kontak"
+                            class="p-0 text-decoration-none nav-link text-light {{ Request::is('kontak') ? 'active' : '' }}">
+                            Kontak
+                        </a>
+                    </li>
+
+                    <!-- Instagram -->
+                    <li>
+                        <a href="https://www.instagram.com/hipmikotamojokerto/" target="_blank" class="text-light ms-3">
                             <i class="bi bi-instagram fs-4"></i>
-                        </a></li>
-                    <!-- <li><a href="/kontak" class="btn btn-light btn-sm">Join Now</a></li> -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@hipmimojokertokota" target="_blank" class="text-light">
+                            <i class="bi bi-youtube fs-4"></i>
+                        </a>
+                    </li>
+
                 </ul>
-                <!-- Tambahkan ikon Instagram -->
-
-
-                <!-- Tambahkan tombol Join Now -->
 
                 <i class="mobile-nav-toggle d-xl-none bi bi-list text-light"></i>
             </nav>
-
         </div>
-        <div class="row gy-4">
+
+        <div class="row gy-4 align-items-center justify-content-between" style="margin-top: 100px;">
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
                 <h1 class="text-light">{{ optional($data)->slogan }}</h1>
                 <p class="text-light">Bergabunglah bersama organisasi pengusaha muda di kota Mojokerto</p>
                 <div class="d-flex">
-                    <a href="/tentang-kami" class="btn-get-started">Tentang Kami</a>
+                    <a href="/tentang-kami" class="btn-get-started text-decoration-none">Tentang Kami</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @php
 // Fungsi untuk memproses statistik
 function processStat($stat, $defaultText) {
@@ -127,7 +164,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                     {!! optional($data)->deskripsi_hipmi !!}
                 </div>
                 <div class="d-flex mt-4">
-                    <a href="#about" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 m-2 fw-bold">Kenali Lebih Dalam</a>
+                    <a href="/tentang-kami" class="badge rounded-pill px-3 py-2 fs-6 m-2 fw-bold text-decoration-none" style="background-color: #112559;">Kenali Lebih Dalam</a>
                 </div>
             </div>
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
@@ -205,7 +242,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 
                 </div>
                 <div class="d-flex mt-4">
-                    <a href="/berita-dan-kegiatan" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 fw-bold">Baca Artikel Lainnya</a>
+                    <a href="/berita-dan-kegiatan" class="badge rounded-pill bg-primary px-3 py-2 fs-6 fw-bold" style="background-color: #112559;">Baca Artikel Lainnya</a>
                 </div>
                 @endif
             </div>
@@ -233,7 +270,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
 
                 </div>
                 <div class="d-flex">
-                    <a href="/berita-dan-kegiatan" class="btn btn-primary text-light rounded-pill bg-primary px-3 py-2 fs-6 fw-bold">Kegiatan Lainnya</a>
+                    <a href="/berita-dan-kegiatan" class="badge rounded-pill bg-primary px-3 py-2 fs-6 fw-bold" style="background-color: #112559;">Kegiatan Lainnya</a>
                 </div>
                 @endif
             </div>
@@ -290,7 +327,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                     <h1>Keanggotaan</h1>
                     {!! optional($data)->deskripsi_keanggotaan !!}
                     <div class="">
-                        <a href="#about" class="badge rounded-pill bg-primary px-4 py-2 fs-6">Daftar Menjadi Anggota</a>
+                        <a href="/kontak" class="badge rounded-pill px-4 py-2 fs-6 text-decoration-none" style="background-color: #112559;">Daftar Menjadi Anggota</a>
                     </div>
                 </div>
 
@@ -329,7 +366,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                                     <p class="text-description mb-0 " style="text-align: justify;">
                                         {{ $kenapa->deskripsi }}
                                     </p>
-                                    <button class="btn btn-link p-0 show-more">Show More</button>
+                                    <button class="btn btn-link p-0 show-more text-decoration-none">Show More</button>
                                 </div>
                             </div>
                             @endforeach

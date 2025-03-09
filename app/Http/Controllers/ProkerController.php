@@ -46,7 +46,7 @@ class ProkerController extends Controller
         $request->validate([
             'ajuan_proker' => 'required',
             'rencana_pelaksanaan' => 'required',
-            'rencana_anggaran' => 'required',
+            'progress' => 'required',
             'monitoring_evaluasi' => 'required'
         ]);
         $data = [...$request->all(), "devisi_id" => $id];
@@ -64,7 +64,7 @@ class ProkerController extends Controller
         $request->validate([
             'ajuan_proker' => 'required',
             'rencana_pelaksanaan' => 'required',
-            'rencana_anggaran' => 'required',
+            'progress' => 'required',
             'monitoring_evaluasi' => 'required'
         ]);
         $proker = Proker::find($idProker);

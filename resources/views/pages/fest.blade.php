@@ -15,24 +15,23 @@
 
         @foreach($events as $event)
         <div class="row my-2 p-2">
-            <div class="card shadow-sm event-card">
-                <div class="card-body d-flex align-items-center">
-                    <div class="me-3 text-center px-4">
-                        <div class="fw-bold text-primary">{{ \Carbon\Carbon::parse(optional($event)->date)->translatedFormat('M') }}</div>
-                        <div class="display-5 fw-bold">{{ \Carbon\Carbon::parse(optional($event)->date)->format('d') }}</div>
-                    </div>
-                    <div>
-                        <h5 class="mb-1"><a href="{{ route('beranda.detail.kegiatan', $event->id) }}" class="text-decoration-none fw-bold">
-                                {{ optional($event)->title }}
-                            </a></h5>
-                        <p class="mb-1 text-muted"><strong>{{ optional($event)->jadwal }}</strong></p>
-                        <p class="mb-0 text-muted"><i class="bi bi-geo-alt"></i> {{ optional($event)->lokasi }}</p>
-                    </div>
+            <a href="{{ route('beranda.detail.fest', $event->id) }}" class="card shadow-sm event-card text-decoration-none">
+                <div class="card-body align-items-center">
+                    <h5 class="mb-1 text-decoration-none fw-bold">
+                        {{ optional($event)->nama_fest }}
+                    </h5>
+                    <p class="mb-1 text-muted"><strong>{{ optional($event)->jadwal_fest }}</strong></p>
+                    <p class="mb-0 text-muted"><i class="bi bi-geo-alt"></i> {{ optional($event)->lokasi }}</p>
                 </div>
-            </div>
+            </a>
         </div>
-        @endforeach
+        </a>
+
+
     </div>
+</div>
+@endforeach
+</div>
 </div>
 
 

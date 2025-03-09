@@ -44,4 +44,12 @@
             <a href="{{ route('proker.index',$id) }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
+    @section('scripts')
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->
+    <script>
+        ClassicEditor.create(document.querySelector('#progress'));
+        ClassicEditor.create(document.querySelector('#monitoring_evaluasi'));
+
+    </script>
+    @endsection
 </x-app-layout>

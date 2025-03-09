@@ -51,7 +51,7 @@
 
 <div>
     <div class="container">
-        <h1 class="text-primary">Kalender Kegiatan</h1>
+        <h1 class="text-utama">Kalender Kegiatan</h1>
         <h2 class="text-yellow">Catat jadwal kegiatan kami</h2>
 
         @foreach($events as $event)
