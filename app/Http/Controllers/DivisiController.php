@@ -35,7 +35,7 @@ class DivisiController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['nama_devisi' => 'required']);
+        $request->validate(['bidang' => 'required','nama_devisi' => 'required']);
         Divisi::create($request->all());
         return redirect()->route('divisi.index')->with('success', 'Devisi berhasil ditambahkan.');
     }
@@ -50,7 +50,7 @@ class DivisiController extends Controller
 
     public function update(Request $request, Divisi $divisi)
     {
-        $request->validate(['nama_devisi' => 'required']);
+        $request->validate(['bidang' => 'required','nama_devisi' => 'required']);
         $divisi->update($request->all());
         return redirect()->route('divisi.index')->with('success', 'Devisi berhasil diperbarui.');
     }

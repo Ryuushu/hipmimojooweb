@@ -10,10 +10,10 @@ return new class extends Migration {
             $table->id();
             $table->string('title_web');
             $table->string('slogan');
-            $table->string('stat1');
-            $table->string('stat2');
-            $table->string('stat3');
-            $table->string('stat4');
+            $table->string('stat1')->nullable();
+            $table->string('stat2')->nullable();
+            $table->string('stat3')->nullable();
+            $table->string('stat4')->nullable();
             $table->text('deskripsi_hipmi');
             $table->text('visi');
             $table->text('misi');

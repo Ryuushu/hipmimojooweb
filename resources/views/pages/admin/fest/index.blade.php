@@ -11,6 +11,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nama Fest</th>
+                        <th>Deskripsi Acara</th>
                         <th>Jadwal</th>
                         <th>Lokasi</th>
                         <th>Rangkaian Acara</th>
@@ -34,6 +35,10 @@
                     {
                         data: 'nama_fest',
                         name: 'nama_fest'
+                    },
+                    {
+                        data: 'deskripsi_fest',
+                        name: 'deskripsi_fest'
                     },
                     {
                         data: 'jadwal_fest',

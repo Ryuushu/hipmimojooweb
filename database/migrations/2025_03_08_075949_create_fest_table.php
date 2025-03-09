@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('fest', function (Blueprint $table) {
             $table->id();
             $table->string('nama_fest');
+            $table->string('deskripsi_fest');
             $table->string('jadwal_fest');
             $table->string('lokasi');
             $table->text('rangkaian_acara');

@@ -10,6 +10,13 @@
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label>Deskripsi Acara</label>
+                <textarea name="deskripsi_fest" id="deskripsi_fest" class="form-control">{{ old('deskripsi_fest') }}</textarea>
+                @error('deskripsi_fest')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
             <div class="mb-3">
                 <label>Jadwal Festival</label>
@@ -52,11 +59,18 @@
             .catch(error => {
                 console.error(error);
             });
+            ClassicEditor.create(document.querySelector('#deskripsi_fest'))
+            .then(editor => {
+                editorInstance = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
         document.querySelector("form").addEventListener("submit", function(event) {
             // Ambil data dari CKEditor dan simpan ke textarea sebelum submit
             document.querySelector("#rangkaian_acara").value = editorInstance.getData();
-
+            document.querySelector("#deskripsi_fest").value = editorInstance.getData();
             // Cek jika kosong
             if (!editorInstance.getData().trim()) {
                 alert("Rangkaian Acara harus diisi!");

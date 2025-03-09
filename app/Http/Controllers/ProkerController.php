@@ -46,12 +46,12 @@ class ProkerController extends Controller
             'devisi_id' => 'required',
             'ajuan_proker' => 'required',
             'rencana_pelaksanaan' => 'required',
-            'rencana_anggaran' => 'required',
+            'progress' => 'required',
             'monitoring_evaluasi' => 'required'
         ]);
 
         Proker::create($request->all());
-        return redirect()->route('proker.index')->with('success', 'Proker berhasil ditambahkan.');
+        return redirect()->route('divisi.index')->with('success', 'Proker berhasil ditambahkan.');
     }
 
     public function edit($id, Proker $proker)
@@ -65,17 +65,17 @@ class ProkerController extends Controller
             'devisi_id' => 'required',
             'ajuan_proker' => 'required',
             'rencana_pelaksanaan' => 'required',
-            'rencana_anggaran' => 'required',
+            'progress' => 'required',
             'monitoring_evaluasi' => 'required'
         ]);
 
         $proker->update($request->all());
-        return redirect()->route('proker.index')->with('success', 'Proker berhasil diperbarui.');
+        return redirect()->route('divisi.index')->with('success', 'Proker berhasil diperbarui.');
     }
 
     public function destroy(Proker $proker)
     {
         $proker->delete();
-        return redirect()->route('proker.index')->with('success', 'Proker berhasil dihapus.');
+        return redirect()->route('divisi.index')->with('success', 'Proker berhasil dihapus.');
     }
 }

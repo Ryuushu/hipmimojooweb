@@ -12,11 +12,8 @@ use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KegiatanSelesaiController;
 use App\Http\Controllers\KenapaController;
-use App\Http\Controllers\kepengurusanController;
-use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProkerController;
-use App\Models\AnggotaPengurus;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -26,8 +23,10 @@ Route::get('/tentang-kami/pengurus', [HomeController::class, 'organisasi']);
 Route::get('/berita-dan-kegiatan', [HomeController::class, 'beritakegiatan']);
 Route::get('/detail-berita/{id}', [HomeController::class, 'berita'])->name('beranda.detail.berita');
 Route::get('/detail-kegiatan/{id}', [HomeController::class, 'kegiatan'])->name('beranda.detail.kegiatan');
+Route::get('/detail-fest/{id}', [HomeController::class, 'detailfest'])->name('beranda.detail.fest');
 Route::post('/send-mail', [ContactController::class, 'sendEmail'])->name('email.send');
-Route::get('/fest', [HomeController::class, 'fest'])->name('hipmi.fest');
+Route::get('/fest', [HomeController::class, 'fest'])->name('home.fest');
+Route::get('/tentang-kami/proker', [HomeController::class, 'proker'])->name('home.proker');
 
 
 Route::get('/kontak', [HomeController::class, 'kontak']);

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('devisi_id')->constrained('divisi')->restrictOnDelete();
             $table->string('ajuan_proker');
             $table->string('rencana_pelaksanaan')->nullable();
-            $table->string('rencana_anggaran')->nullable();
+            $table->text('progress')->nullable();
             $table->text('monitoring_evaluasi')->nullable();
             $table->timestamps();
         });

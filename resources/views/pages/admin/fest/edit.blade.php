@@ -4,7 +4,7 @@
         <form action="{{ route('festad.update', $fest->id) }}" method="POST">
             @csrf
             @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
-            
+
             <div class="mb-3">
                 <label>Nama Festival</label>
                 <input type="text" name="nama_fest" class="form-control" value="{{ old('nama_fest', $fest->nama_fest) }}" required>
@@ -12,7 +12,13 @@
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            <div class="mb-3">
+                <label>Deskripsi Acara</label>
+                <textarea name="deskripsi_fest" id="deskripsi_fest" class="form-control">{{ old('deskripsi_fest', $fest->deskripsi_fest) }}</textarea>
+                @error('deskripsi_fest')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label>Jadwal Festival</label>
                 <input type="text" name="jadwal_fest" class="form-control" value="{{ old('jadwal_fest', $fest->jadwal_fest) }}" required>
@@ -53,12 +59,19 @@
             .catch(error => {
                 console.error(error);
             });
+        ClassicEditor.create(document.querySelector('#deskripsi_fest'))
+            .then(editor => {
+                editorInstance = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
         document.querySelector("form").addEventListener("submit", function(event) {
             // Pastikan CKEditor mengisi textarea sebelum submit
             let editorContent = editorInstance.getData().trim();
             document.querySelector("#rangkaian_acara").value = editorContent;
-
+            document.querySelector("#deskripsi_fest").value = editorContent;
             if (!editorContent) {
                 alert("Rangkaian Acara harus diisi!");
                 event.preventDefault(); // Hentikan submit jika kosong

@@ -9,7 +9,7 @@
             <div class="col-lg-7 d-flex flex-column justify-content-center p-5 bg-yelow" data-aos="fade-up" data-aos-delay="200">
                 <div class="about-content ps-0 ps-lg-3">
                     <h1>{{ optional($data)->title_web }}</h1>
-                    <h4 class="text-primary">Himpunan Pengusaha Muda Indonesia</h4>
+                    <h4 class="text-utama">Himpunan Pengusaha Muda Indonesia</h4>
                     {!! optional($data)->deskripsi_tentang !!}
                 </div>
             </div>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold">
-                                    <h2><a href="/tentang-kami">Tentang Kami</a></h2>
+                                    <h2><a href="/tentang-kami" class="text-utama text-decoration-none">Tentang Kami</a></h2>
                                 </span>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold ">
-                                    <h2><a href="/tentang-kami/sejarah">Sejarah</a></h2>
+                                    <h2><a href="/tentang-kami/sejarah" class="text-utama text-decoration-none">Sejarah</a></h2>
                                 </span>
                             </div>
                         </div>
@@ -46,7 +46,19 @@
                             </div>
                             <div class="col-11">
                                 <span class="fw-semibold">
-                                    <h2><a href="/tentang-kami/pengurus">Struktur Organisasi</a></h2>
+                                    <h2><a href="/tentang-kami/pengurus" class="text-utama text-decoration-none">Struktur Organisasi</a></h2>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <div class="row align-items-center justify-content-center border-bottom">
+                            <div class="col-1">
+                                <i class="bi bi-chevron-right text-primary"></i>
+                            </div>
+                            <div class="col-11">
+                                <span class="fw-semibold">
+                                    <h2><a href="/tentang-kami/proker" class="text-utama text-decoration-none">Program Kerja</a></h2>
                                 </span>
                             </div>
                         </div>

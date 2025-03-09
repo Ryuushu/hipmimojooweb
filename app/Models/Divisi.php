@@ -11,6 +11,7 @@ class Divisi extends Model
     protected $table = 'divisi';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'bidang',
         'nama_devisi'
     ];
     public function proker()

@@ -12,7 +12,7 @@
                         <th>ID</th>
                         <th>Ajuan Proker</th>
                         <th>Rencana Pelaksanaan</th>
-                        <th>Rencana Anggaran</th>
+                        <th>Progress</th>
                         <th>Monitoring Evaluasi</th>
                         <th>Aksi</th>
                     </tr>
@@ -40,8 +40,8 @@
                         name: 'rencana_pelaksanaan'
                     },
                     {
-                        data: 'rencana_anggaran',
-                        name: 'rencana_anggaran'
+                        data: 'progress',
+                        name: 'progress'
                     },
                     {
                         data: 'monitoring_evaluasi',
