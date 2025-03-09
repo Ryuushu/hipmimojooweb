@@ -54,9 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('kegiatan-selesai', KegiatanSelesaiController::class);
     Route::resource('festad', FestController::class);
     Route::resource('divisi', DivisiController::class);
-    Route::resource('proker', ProkerController::class)->except('create','edit');
-    Route::resource('anggota-pengurus', AnggotaPengurusController::class);
-
+    Route::resource('divisi/{divisi}/proker', ProkerController::class);
+    // ->except('create', 'edit');
+    Route::resource('divisi/{divisi}/anggota-pengurus', AnggotaPengurusController::class);
 });
 
 

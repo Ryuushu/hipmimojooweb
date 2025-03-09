@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('devisi_id')->constrained('divisi')->restrictOnDelete();
             $table->string('nama_anggota');
             $table->string('jabatan');
+            $table->enum('tingkatan', [1, 2, 3, 4, 5]);
             $table->string('img')->nullable();
             $table->timestamps();
         });

@@ -376,16 +376,16 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="my-2">
-                <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>

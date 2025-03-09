@@ -2,30 +2,48 @@
     <div class="container">
 
         <h2>Edit Data Pengurus</h2>
-        <form action="{{ route('proker.update', $proker->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('proker.update',[$id,$proker->id]) }}" method="POST">
             @csrf
-            @method('PUT')
+            @method("PUT")
             <input type="hidden" name="devisi_id" value="{{$id}}">
             <div class="mb-3">
                 <label for="ajuan_proker" class="form-label">Ajuan Proker</label>
-                <input type="text" name="ajuan_proker" class="form-control" value="{{ $proker->ajuan_proker }}" required>
+                <input type="text" class="form-control" id="ajuan_proker" name="ajuan_proker" required value="{{ old("ajuan_proker",$proker->ajuan_proker) }}">
+                @error("ajuan_proker")
+                <small class="text-danger">
+                    {{ $message }}
+                </small>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="rencana_pelaksanaan" class="form-label">Rencana Pelaksanaan</label>
-                <input type="text" name="rencana_pelaksanaan" class="form-control" value="{{ $proker->rencana_pelaksanaan }}" required>
+                <input type="text" class="form-control" id="rencana_pelaksanaan" value="{{ old("rencana_pelaksanaan",$proker->rencana_pelaksanaan) }}" name="rencana_pelaksanaan">
+                @error("rencana_pelaksanaan")
+                <small class="text-danger">
+                    {{ $message }}
+                </small>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="progress" class="form-label">Progress</label>
-            
-                <textarea type="text" name="progress" id="progress" class="form-control">{{ old('progress', $proker->progress) }}</textarea>
+                <label for="rencana_anggaran" class="form-label">Rencana Anggaran</label>
+                <input type="text" class="form-control" id="rencana_anggaran" value="{{ old("rencana_anggaran",$proker->rencana_anggaran) }}" name="rencana_anggaran">
+                @error("rencana_anggaran")
+                <small class="text-danger">
+                    {{ $message }}
+                </small>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="monitoring_evaluasi" class="form-label">Monitoring & Evaluasi</label>
-               
-                <textarea type="text" name="monitoring_evaluasi" id="monitoring_evaluasi" class="form-control">{{ old('monitoring_evaluasi', $proker->monitoring_evaluasi) }}</textarea>
+                <input type="text" class="form-control" value="{{ old("monitoring_evaluasi",$proker->monitoring_evaluasi) }}" id="monitoring_evaluasi" name="monitoring_evaluasi">
+                @error("monitoring_evaluasi")
+                <small class="text-danger">
+                    {{ $message }}
+                </small>
+                @enderror
             </div>
-            <button type="submit" class="btn btn-success">Update</button>
-            <a href="{{ route('proker.index') }}" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <a href="{{ route('proker.index',$id) }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 
