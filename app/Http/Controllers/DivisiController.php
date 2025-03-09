@@ -23,8 +23,8 @@ class DivisiController extends Controller
                         ' . csrf_field() . method_field("DELETE") . '
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin hapus?\')">Hapus</button>
                         </form>';
-                    $btn .= '<a href="' . route('anggota-pengurus.show', $row->id) . '" class="btn btn-success btn-sm m-1">Anggota Pengurus</a>';
-                    $btn .= '<a href="' . route('proker.show', $row->id) . '" class="btn btn-info text-light btn-sm m-1">Proker</a>';
+                    $btn .= '<a href="' . route('anggota-pengurus.index', $row->id) . '" class="btn btn-success btn-sm m-1">Anggota Pengurus</a>';
+                    $btn .= '<a href="' . route('proker.index', $row->id) . '" class="btn btn-info text-light btn-sm m-1">Proker</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -40,7 +40,8 @@ class DivisiController extends Controller
         return redirect()->route('divisi.index')->with('success', 'Devisi berhasil ditambahkan.');
     }
 
-    public function create() {
+    public function create()
+    {
         return view('pages.admin.divisi.create');
     }
     public function edit(Divisi $divisi)

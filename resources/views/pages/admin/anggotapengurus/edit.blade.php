@@ -1,26 +1,34 @@
 <x-app-layout>
     <div class="container">
-        
+
         <h2>Edit Data Pengurus</h2>
-        <form action="{{ route('pengurus.update', $pengurus->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <div class="mb-3">
-            <label class="form-label">Thumbnail</label>
-            <input type="file" name="thumbnail" class="form-control">
-            <img src="{{ url(asset('assets/uploadimg/pengurus/'.$pengurus->thumbnail)) }}" class="mt-2" width="50" height="50">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Nama</label>
-            <input type="text" name="nama" class="form-control" value="{{ $pengurus->nama }}" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Jabatan</label>
-            <input type="text" name="jabatan" class="form-control" value="{{ $pengurus->jabatan }}" required>
-        </div>
-        <button type="submit" class="btn btn-success">Update</button>
-        <a href="{{ route('pengurus.index') }}" class="btn btn-secondary">Kembali</a>
-    </form>
+        <form action="{{ route('anggota-pengurus.update',[$id,$idPengurus]) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method("PUT")
+            <div class="mb-3">
+                <label class="form-label">Thumbnail</label>
+                <input type="file" name="img" value="{{ old("img") }}" class="form-control" accept="image/*">
+                @error("img")
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nama</label>
+                <input type="text" value="{{ old("nama_anggota",$pengurus->nama_anggota) }}" name="nama_anggota" class="form-control" required>
+                @error("nama_anggota")
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jabatan</label>
+                <input type="text" value="{{ old("jabatan",$pengurus->jabatan) }}" name="jabatan" class="form-control" required>
+                @error("jabatan")
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="{{ route('anggota-pengurus.index',$id) }}" class="btn btn-secondary">Kembali</a>
+        </form>
     </div>
 
     @section('scripts')
