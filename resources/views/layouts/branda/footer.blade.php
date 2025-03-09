@@ -10,7 +10,10 @@
                 <p><i class="bi bi-telephone"></i> TEL: 008-155-221-124</p>
                 <!-- <p><i class="bi bi-whatsapp"></i> WHATSAPP: 0813-9990-3752</p> -->
                 <div>
-                    <a href="https://www.instagram.com/hipmikotamojokerto/" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.instagram.com/hipmikotamojokerto/" class="text-white "><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="https://www.youtube.com/@hipmimojokertokota" target="_blank" class="text-light">
+                        <i class="bi bi-youtube fs-4"></i>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 mb-4">
@@ -30,7 +33,7 @@
                 </form>
             </div>
             <div class="col-lg-2 text-center">
-                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 270px;">
+                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 100px;width: 100%;">
             </div>
         </div>
     </div>

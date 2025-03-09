@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-7 d-flex flex-column justify-content-center p-5">
 
-                <h3 class="text-yelow">SEJARAH HIPMI JAYA</h3>
+                <h3 class="text-yelow">SEJARAH {{ optional($data)->title_web }}</h3>
                 <div class="text-light">
                 {!! optional($deskripsi_sejarah)->deskripsi_sejarah!!}
                 </div>

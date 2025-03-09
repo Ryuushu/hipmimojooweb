@@ -24,48 +24,36 @@
     <link href="{{ asset("assets/vendor/swiper/swiper-bundle.min.css") }}" rel="stylesheet">
     <link href="{{ asset("assets/css/main.css") }}" rel="stylesheet">
     <style>
-       
-
         .bg-grey {
             background-color: #EEF1F8 !important;
         }
-
         .bg-yelow {
             background-color: #EFD43D !important;
         }
-
         .bg-yelow-value {
             background-color: rgb(249, 236, 166) !important;
         }
-
         .bg-tranparntvisi {
             background-color: rgb(17, 37, 89) !important;
         }
-
         .bg-tranparntmisi {
             background-color: rgb(24, 31, 50) !important;
         }
-
         .bg-light {
             background-color: #fff !important;
         }
-
         .bg-utama {
             background-color: #07225E !important;
         }
-
         .text-yelow {
             color: #EFD43F
         }
-
         .text-utama {
             color: #07225E !important;
         }
-
         .text-primary {
             color: #07225E !important;
-        }
-
+        } 
         .timeline {
             position: relative;
             padding: 20px 0;

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $divisi = [
+            ['bidang' => 'Pengurus Umum', 'nama_devisi' => 'Pengurus Umum'],
             ['bidang' => 'Bidang I', 'nama_devisi' => 'Organisasi, Keanggotaan dan Kaderisasi'],
             ['bidang' => 'Bidang II', 'nama_devisi' => 'Keuangan, Perbankan dan Perencanaan Pembangunan'],
             ['bidang' => 'Bidang III', 'nama_devisi' => 'ESDM, Lingkungan Hidup dan Kehutanan'],
