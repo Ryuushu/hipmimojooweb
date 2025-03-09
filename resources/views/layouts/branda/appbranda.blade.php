@@ -24,6 +24,7 @@
     <link href="{{ asset("assets/vendor/swiper/swiper-bundle.min.css") }}" rel="stylesheet">
     <link href="{{ asset("assets/css/main.css") }}" rel="stylesheet">
     <style>
+       
 
         .bg-grey {
             background-color: #EEF1F8 !important;
@@ -48,6 +49,7 @@
         .bg-light {
             background-color: #fff !important;
         }
+
         .bg-utama {
             background-color: #07225E !important;
         }
@@ -55,9 +57,11 @@
         .text-yelow {
             color: #EFD43F
         }
-        .text-utama{
+
+        .text-utama {
             color: #07225E !important;
         }
+
         .text-primary {
             color: #07225E !important;
         }

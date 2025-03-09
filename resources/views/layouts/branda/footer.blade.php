@@ -18,6 +18,7 @@
                 <ul class="list-unstyled">
                     <li><a href="/tentang-kami" class="text-white">Tentang Kami</a></li>
                     <li><a href="/berita-dan-kegiatan" class="text-white">Berita</a></li>
+                    <li><a href="/fest" class="text-white">Hipmi Fest</a></li>
                     <li><a href="/kontak" class="text-white">Kontak</a></li>
                 </ul>
             </div>
@@ -34,8 +35,3 @@
         </div>
     </div>
 </footer>
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">

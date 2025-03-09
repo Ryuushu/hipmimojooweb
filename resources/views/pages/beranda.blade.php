@@ -65,7 +65,6 @@
                     </li>
 
                 </ul>
-
                 <i class="mobile-nav-toggle d-xl-none bi bi-list text-light"></i>
             </nav>
         </div>
