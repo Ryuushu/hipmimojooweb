@@ -10,7 +10,7 @@
 
                 <h3 class="text-yelow">SEJARAH {{ optional($data)->title_web }}</h3>
                 <div class="text-light">
-                {!! optional($deskripsi_sejarah)->deskripsi_sejarah!!}
+                {!! optional($data)->deskripsi_sejarah!!}
                 </div>
 
             </div>

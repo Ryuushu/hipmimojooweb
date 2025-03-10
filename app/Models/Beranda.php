@@ -12,6 +12,7 @@ class Beranda extends Model {
     protected $fillable = [
         'title_web', 'slogan', 'stat1', 'stat2', 'stat3', 'stat4',
         'deskripsi_hipmi', 'visi', 'misi', 'deskripsi_keanggotaan',
-        'deskripsi_sejarah', 'deskripsi_kepengurusan','deskripsi_tentang'
+        'deskripsi_sejarah', 'deskripsi_kepengurusan','deskripsi_tentang',
+        'periode_keanggotaan'
     ];
 }

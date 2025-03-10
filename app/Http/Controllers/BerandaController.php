@@ -67,14 +67,14 @@ class BerandaController extends Controller
             'stat2' => 'nullable|string',
             'stat3' => 'nullable|string',
             'stat4' => 'nullable|string',
-            'deskripsi_hipmi' => 'nullable|string',
-            'visi' => 'nullable|string',
-            'misi' => 'nullable|string',
-            'deskripsi_keanggotaan' => 'nullable|string',
-            'deskripsi_sejarah' => 'nullable|string',
-            'deskripsi_kepengurusan' => 'nullable|string',
-            'deskripsi_tentang' => 'nullable|string',
-
+            'deskripsi_hipmi' => 'required|string',
+            'visi' => 'required|string',
+            'misi' => 'required|string',
+            'deskripsi_keanggotaan' => 'required|string',
+            'deskripsi_sejarah' => 'required|string',
+            'deskripsi_kepengurusan' => 'required|string',
+            'deskripsi_tentang' => 'required|string',
+            'periode_keanggotaan'=>'required|string'
         ]);
 
         $beranda = Beranda::first(); // Ambil data pertama jika ada

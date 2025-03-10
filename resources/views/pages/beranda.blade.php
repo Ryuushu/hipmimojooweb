@@ -65,7 +65,7 @@
                     </li>
 
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list text-light"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list text-light" id="mobile-nav-toggle"></i>
             </nav>
         </div>
 
@@ -110,7 +110,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 <i class="bi bi-emoji-smile"></i>
                 <div class="stats-item bg-light">
 
-                    <span data-purecounter-start="0" data-purecounter-end="{{ $stat1['number'] }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="{{ preg_replace('/[^0-9]/', '', $stat1['number']) }}" data-purecounter-duration="1" class="purecounter"></span>
                     <p>{{ $stat1['text'] }}</p>
                 </div>
             </div><!-- End Stats Item -->
@@ -119,7 +119,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
             <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                 <i class="bi bi-journal-richtext"></i>
                 <div class="stats-item bg-light">
-                    <span data-purecounter-start="0" data-purecounter-end="{{ $stat2['number'] }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="{{ preg_replace('/[^0-9]/', '', $stat2['number']) }}" data-purecounter-duration="1" class="purecounter"></span>
                     <p>{{ $stat2['text'] }}</p>
                 </div>
             </div><!-- End Stats Item -->

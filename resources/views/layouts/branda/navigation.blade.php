@@ -10,7 +10,7 @@
                     <!-- Tentang Kami -->
                     <li class="dropdown nav-item">
                         <a href="/tentang-kami"
-                            class="p-0 text-decoration-none nav-link {{ Request::is('tentang-kami*') ? 'active' : '' }}">
+                            class=" text-decoration-none nav-link {{ Request::is('tentang-kami*') ? 'active' : '' }}">
                             <span class="{{ Request::is('tentang-kami*') ? 'active' : '' }}">Tentang Kami</span>
                             <i class="bi bi-chevron-down toggle-dropdown"></i>
                         </a>
@@ -27,7 +27,7 @@
                     <!-- Berita dan Kegiatan -->
                     <li>
                         <a href="/berita-dan-kegiatan"
-                            class="p-0 text-decoration-none nav-link {{ Request::is('berita-dan-kegiatan') ? 'active' : '' }}">
+                            class=" text-decoration-none nav-link {{ Request::is('berita-dan-kegiatan') ? 'active' : '' }}">
                             Berita dan Kegiatan
                         </a>
                     </li>
@@ -35,7 +35,7 @@
                     <!-- HIPMI Fest -->
                     <li>
                         <a href="/fest"
-                            class="p-0 text-decoration-none nav-link {{ Request::is('fest') ? 'active' : '' }}">
+                            class=" text-decoration-none nav-link {{ Request::is('fest') ? 'active' : '' }}">
                             HIPMI Fest
                         </a>
                     </li>
@@ -43,7 +43,7 @@
                     <!-- Kontak -->
                     <li>
                         <a href="/kontak"
-                            class="p-0 text-decoration-none nav-link {{ Request::is('kontak') ? 'active' : '' }}">
+                            class=" text-decoration-none nav-link {{ Request::is('kontak') ? 'active' : '' }}">
                             Kontak
                         </a>
                     </li>
@@ -61,7 +61,6 @@
                     </li>
 
                 </ul>
-
                 <i class="mobile-nav-toggle d-xl-none bi bi-list text-light"></i>
             </nav>
         </div>

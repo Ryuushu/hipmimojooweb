@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <h2>Data Divisi</h2>
+        <h2>Data Keanggotaan</h2>
         <a href="{{ route('divisi.create') }}" class="btn btn-primary mb-3">Tambah Devisi</a>
 
         <div class="table-responsive table  ">

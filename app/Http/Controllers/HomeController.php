@@ -36,10 +36,7 @@ class HomeController extends Controller
     public function sejarah()
     {
         $data = Beranda::latest()->first();
-
-        $deskripsi_sejarah = Beranda::latest()->first(['deskripsi_sejarah']);
-
-        return view('pages.sejarah', compact('deskripsi_sejarah', 'data'));
+        return view('pages.sejarah', compact( 'data'));
     }
     public function kontak()
     {
@@ -53,9 +50,8 @@ class HomeController extends Controller
     {
 
         $data = Beranda::latest()->first();
-        $deskripsi_kepengurusan = Beranda::latest()->first(['deskripsi_kepengurusan']);
         $divisi = Divisi::get();
-        return view('pages.pengurus', compact("deskripsi_kepengurusan", 'data', "divisi"));
+        return view('pages.pengurus', compact( 'data', "divisi"));
     }
 
     public function beritakegiatan()

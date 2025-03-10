@@ -1,19 +1,25 @@
 <x-app-layout>
-    
+
     <div class="container">
         <h2>Edit Data Berita</h2>
         <form action="{{ route('berita.update', $data->id) }}" method="POST">
             @csrf
-          
-            
+
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Title Web</label>
                     <input type="text" name="title_web" class="form-control" value="{{ old('title_web', $data->title_web) }}" required>
+                    @error('title_web')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Slogan</label>
                     <input type="text" name="slogan" class="form-control" value="{{ old('slogan', $data->slogan) }}" required>
+                    @error('slogan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -21,10 +27,16 @@
                 <div class="col-md-6 mb-3">
                     <label>Stat 1</label>
                     <input type="number" name="stat1" class="form-control" value="{{ old('stat1', $data->stat1) }}">
+                    @error('stat1')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Stat 2</label>
                     <input type="number" name="stat2" class="form-control" value="{{ old('stat2', $data->stat2) }}">
+                    @error('stat2')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -32,36 +44,60 @@
                 <div class="col-md-6 mb-3">
                     <label>Stat 3</label>
                     <input type="number" name="stat3" class="form-control" value="{{ old('stat3', $data->stat3) }}">
+                    @error('stat3')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Stat 4</label>
                     <input type="number" name="stat4" class="form-control" value="{{ old('stat4', $data->stat4) }}">
+                    @error('stat4')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
             <div class="mb-3">
                 <label>Deskripsi HIPMI</label>
                 <textarea name="deskripsi_hipmi" id="deskripsi_hipmi" class="form-control">{{ old('deskripsi_hipmi', $data->deskripsi_hipmi) }}</textarea>
+                @error('deskripsi_hipmi')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label>Visi</label>
                 <textarea name="visi" id="visi" class="form-control">{{ old('visi', $data->visi) }}</textarea>
+                @error('visi')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label>Misi</label>
                 <textarea name="misi" id="misi" class="form-control">{{ old('misi', $data->misi) }}</textarea>
+                @error('misi')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label>Deskripsi Keanggotaan</label>
                 <textarea name="deskripsi_keanggotaan" id="deskripsi_keanggotaan" class="form-control" rows="5">{{ old('deskripsi_keanggotaan', $data->deskripsi_keanggotaan) }}</textarea>
+                @error('deskripsi_keanggotaan')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label>Deskripsi Sejarah</label>
                 <textarea name="deskripsi_sejarah" id="deskripsi_sejarah" class="form-control" rows="5">{{ old('deskripsi_sejarah', $data->deskripsi_sejarah) }}</textarea>
+                @error('deskripsi_sejarah')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label>Deskripsi Kepengurusan</label>
                 <textarea name="deskripsi_kepengurusan" id="deskripsi_kepengurusan" class="form-control" rows="5">{{ old('deskripsi_kepengurusan', $data->deskripsi_kepengurusan) }}</textarea>
+                @error('deskripsi_kepengurusan')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-success">Update</button>

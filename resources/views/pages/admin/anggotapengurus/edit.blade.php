@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Jabatan</label>
-                <input type="text" value="{{ old("jabatan",$pengurus->jabatan) }}" name="jabatan" class="form-control" required>
+                <input type="text" value="{{ old("jabatan",$pengurus->jabatan) }}"accept="image/*" name="jabatan" class="form-control" required>
                 @error("jabatan")
                 <small class="text-danger">{{ $message }}</small>
                 @enderror

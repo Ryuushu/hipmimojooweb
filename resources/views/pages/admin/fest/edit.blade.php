@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <h2>Edit Festival</h2>
+        <h2>Edit HIPMI Fest</h2>
         <form action="{{ route('festad.update', $fest->id) }}" method="POST">
             @csrf
             @method('PUT') {{-- Tambahkan metode PUT untuk update --}}

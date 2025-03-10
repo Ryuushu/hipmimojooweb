@@ -1,11 +1,10 @@
-<header class="bg-dark text-white p-3 d-flex justify-content-end">
+<header class="text-white p-3 d-flex justify-content-end" style="background-color: #07225E;">
     <div class="dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ Auth::user()->name }}
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <!-- <li><hr class="dropdown-divider"></li> -->
             <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -18,36 +17,36 @@
 
 <div class="d-flex">
     <!-- Sidebar -->
-    <nav class="bg-dark text-white vh-100 p-3" style="width: 250px;">
-        <h4 class="text-center">Menu</h4>
-        <ul class="nav flex-column">
+    <nav class="text-white vh-100 p-3" style="width: 250px;background-color: #07225E;" >
+       
+        <ul class="nav flex-column nav-underline">
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('Master Beranda') ? 'active' : '' }}" href="{{ route('beranda.form') }}">Master Beranda</a>
+                <a class="nav-link text-light  {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('beranda.form') }}">Master Beranda</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('Why') ? 'active' : '' }}" href="{{ route('kenapa.index') }}">Why</a>
+                <a class="nav-link text-light {{ Request::is('kenapa') ? 'active' : '' }}" href="{{ route('kenapa.index') }}">Why Join HIPMI</a>
             </li>
      
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('Berita') ? 'active' : '' }}" href="{{ route('berita.index') }}">Berita</a>
+                <a class="nav-link text-light {{ Request::is('berita') ? 'active' : '' }}" href="{{ route('berita.index') }}">Berita</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('Kategori Berita') ? 'active' : '' }}" href="{{ route('kategori-berita.index') }}">Kategori Berita</a>
+                <a class="nav-link text-light {{ Request::is('kategori-berita') ? 'active' : '' }}" href="{{ route('kategori-berita.index') }}">Kategori Berita</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('kegiatan') ? 'active' : '' }}" href="{{ route('kegiatan.index') }}">Kegiatan</a>
+                <a class="nav-link text-light {{ Request::is('kegiatan') ? 'active' : '' }}" href="{{ route('kegiatan.index') }}">Jadwal Event HIPMI</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('kegiatan-selesai') ? 'active' : '' }}" href="{{ route('kegiatan-selesai.index') }}">Kegiatan Selesai</a>
+                <a class="nav-link text-light {{ Request::is('kegiatan-selesai') ? 'active' : '' }}" href="{{ route('kegiatan-selesai.index') }}">Dokumentasi Event Selesai</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('anggota') ? 'active' : '' }}" href="{{ route('anggota.index') }}">Anggota</a>
+                <a class="nav-link text-light {{ Request::is('anggota') ? 'active' : '' }}" href="{{ route('anggota.index') }}">Logo Anggota HIPMI</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('divisi') ? 'active' : '' }}" href="{{ route('divisi.index') }}">Divisi</a>
+                <a class="nav-link text-light {{ Request::is('divisi') ? 'active' : '' }}" href="{{ route('divisi.index') }}">Keanggotaan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light {{ request()->routeIs('festad') ? 'active' : '' }}" href="{{ route('festad.index') }}">Fest</a>
+                <a class="nav-link text-light {{ Request::is('festad') ? 'active' : '' }}" href="{{ route('festad.index') }}">HIPMI Fest</a>
             </li>
         </ul>
     </nav>

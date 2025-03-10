@@ -14,10 +14,15 @@ class KegiatanSelesaiController extends Controller
         if ($request->ajax()) {
             $data = KegiatanSelesai::latest()->get();
             return DataTables::of($data)
-                ->addColumn('aksi', function ($item) {
-                    return '<a href="' . route('kegiatan-selesai.edit', $item->id) . '" class="btn btn-warning btn-sm">Edit</a>
-                    <button class="btn btn-danger btn-sm delete-btn" data-id="' . $item->id . '">Hapus</button>';
+                ->addColumn('aksi', function ($row) {
+                    $btn = '<a href="' . route('kegiatan-selesai.edit', $row->id) . '" class="edit btn btn-primary btn-sm">Edit</a>';
+                    $btn .= ' <form action="' . route('kegiatan-selesai.destroy', $row->id) . '" method="POST" style="display:inline;">
+                    ' . csrf_field() . method_field("DELETE") . '
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin hapus?\')">Hapus</button>
+                    </form>';
+                    return $btn;
                 })
+              
                 ->rawColumns(['aksi'])
                 ->make(true);
         }
@@ -96,7 +101,6 @@ class KegiatanSelesaiController extends Controller
 
         // Hapus data dari database
         $kegiatan_selesai->delete();
-
         return redirect()->route('kegiatan-selesai.index')->with('success', 'Data berhasil dihapus');
     }
 }

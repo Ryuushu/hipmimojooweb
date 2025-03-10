@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container">
-        <h2>Data Kegiatan</h2>
-        <a href="{{ route('kegiatan.create') }}" class="btn btn-success">Tambah Kegiatan</a>
+        <h2>Data Jadwal Event HIPMI</h2>
+        <a href="{{ route('kegiatan.create') }}" class="btn btn-success">Tambah Jadwal Event HIPMI</a>
         <br><br>
         <table class="table table-bordered" id="datatable">
             <thead>

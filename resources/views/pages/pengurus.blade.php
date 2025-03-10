@@ -12,7 +12,7 @@
 
                 <h3 class="text-yelow">Struktur Oganisasi</h3>
                 <div class="text-light">
-                    {!! optional($deskripsi_kepengurusan)->deskripsi_kepengurusan !!}
+                    {!! optional($data)->deskripsi_kepengurusan !!}
                 </div>
 
             </div>
@@ -72,6 +72,10 @@
         </div>
     </div>
     <div class="container">
+        <h1 class="text-center my-5">Kepengurusan</h1>
+        <div class="text-center mb-5">
+            {!! optional($data)->periode_keanggotaan !!}
+        </div>
         @foreach ($divisi as $index=> $d)
         @php
         if($d->anggotaPengurus()->count()== 0){
@@ -105,7 +109,7 @@
                     <article style="width: 250px;">
                         <img class="img-fluid object-fit-cover" style="aspect-ratio: 1/1;" src="{{ asset('assets/uploadimg/pengurus/'.$s->img) }}" alt="">
                         <center>
-                            <h6 class="mt-2 ">{{ $s->nama_anggota }}</h6>
+                            <h6 class="mt-2 fw-bold">{{ $s->nama_anggota }}</h6>
                             <span>{{ $s->jabatan }}</span>
                         </center>
                     </article>

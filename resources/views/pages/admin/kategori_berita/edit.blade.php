@@ -7,6 +7,9 @@
             <div class="mb-3">
                 <label>Nama Kategori</label>
                 <input type="text" name="nama_kategori" value="{{ $kategoriBerita->nama_kategori }}" class="form-control" required>
+                @error('nama_kategori')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
             <a href="{{ route('kategori-berita.index') }}" class="btn btn-secondary">Kembali</a>

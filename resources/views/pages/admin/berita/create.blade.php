@@ -5,7 +5,7 @@
         @csrf
         <div class="mb-3">
             <label>Thumbnail</label>
-            <input type="file" name="thumbnail" class="form-control @error('thumbnail') is-invalid @enderror" required>
+            <input type="file" name="thumbnail" class="form-control @error('thumbnail') is-invalid @enderror" accept="image/*" required>
             @error('thumbnail')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

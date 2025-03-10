@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->text('deskripsi_sejarah');
             $table->text('deskripsi_kepengurusan');
             $table->text('deskripsi_tentang');
+            $table->text('periode_keanggotaan');
             $table->timestamps();
         });
     }

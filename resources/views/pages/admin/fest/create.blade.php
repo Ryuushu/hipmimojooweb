@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <h2>Tambah Festival</h2>
+        <h2>Tambah HIPMI Fest</h2>
         <form action="{{ route('festad.store') }}" method="POST">
             @csrf
             <div class="mb-3">

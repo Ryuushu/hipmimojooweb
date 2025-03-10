@@ -2,7 +2,7 @@
 
 
     <div class="container">
-        <h2>Data Kegiatan Selesai</h2>
+        <h2>Data Dokumentasi Event Selesai</h2>
         <a href="{{ route('kegiatan-selesai.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
         <div class="table-responsive">

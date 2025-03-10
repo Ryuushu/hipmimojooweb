@@ -1,8 +1,6 @@
 <x-app-layout>
-
-
     <div class="container">
-        <h2>Data Anggota</h2>
+        <h2>Data Logo Anggota HIPMI</h2>
         <a href="{{ route('anggota.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
         <div class="table-responsive">

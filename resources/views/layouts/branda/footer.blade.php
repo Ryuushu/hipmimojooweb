@@ -4,10 +4,10 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <h5>Sekertariat BPC Hipmi kota mojokerto</h5>
                 <p><i class="bi bi-geo-alt"></i> Jl. Empunala No. 234, Kelurahan Kedundung, Kecamatan Magersari
-                    Kota Mojokerto – 61316, INDONESIA</p>
+                    Kota Mojokerto - 61316, INDONESIA</p>
                 <p><i class="bi bi-envelope"></i> hipmikotamojokerto@gmail.com / info@hipmimojokertokota.org
                 </p>
-                <p><i class="bi bi-telephone"></i> TEL: 008-155-221-124</p>
+                <p><i class="bi bi-telephone"></i> TEL: 081-552-211-24</p>
                 <!-- <p><i class="bi bi-whatsapp"></i> WHATSAPP: 0813-9990-3752</p> -->
                 <div>
                     <a href="https://www.instagram.com/hipmikotamojokerto/" class="text-white "><i class="bi bi-instagram fs-4"></i></a>

@@ -2,7 +2,7 @@
 
 
     <div class="container">
-        <h2>Data Why</h2>
+        <h2>Data Why Join HIPMI</h2>
         <a href="{{ route('kenapa.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
         <div class="table-responsive">
