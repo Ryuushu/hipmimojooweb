@@ -111,7 +111,7 @@
                 <div class="col-sm-8 bg-body-secondary rounded">
                     <div class="timeline-content">
                         <h5 class="text-utama"><strong>BPC HIPMI Kota Mojokerto</strong></h5>
-                        <p>- BPC HIPMI Kota Mojokerto terlibat dalam acara Business Matching Silaturahmi Kolaborasi 2025. <br>- Kolaborasi dengan HIPMI dari tiga kota/kabupaten di Jawa Timur.<br>Dengan tujuan acara: memperkuat sinergi antar pengusaha muda, memperluas jaringan usaha, dan membangun kolaborasi bisnis.</p>
+                        <p>- BPC HIPMI Kota Mojokerto terlibat dalam acara Business Matching Silaturahmi Kolaborasi 2025. <br>- Kolaborasi dengan HIPMI dari tiga kota/kabupaten di Jawa Timur.<br>Dengan tujuan acara: memperkuat sinergi antar pengusaha muda, memperluas jaringan usaha, dan membangun kolaborasi bisnis.</p>
                        
                     </div>
                 </div>

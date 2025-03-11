@@ -5,7 +5,7 @@
     <div class="container">
         <div class="header position-relative d-flex align-items-center justify-content-between" style="background-color: rgba(0,0,0,0);">
             <a href="/" class="logo d-flex align-items-center text-decoration-none">
-                <img src="{{ asset('assets/img/Logo hip.png') }}" alt="">
+                <img src="{{ asset('assets/img/Logo hip.png') }}" loading="lazy" alt="">
                 <h2 class="sitename text-light">{{ optional($data)->title_web }}</h2>
             </a>
 
@@ -167,7 +167,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 </div>
             </div>
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ asset("assets/img/as.JPG") }}" alt="" class="img-fluid">
+                <img src="{{ asset("assets/img/as.JPG") }}" alt="" loading="lazy" class="img-fluid">
             </div>
         </div>
     </div>
@@ -226,7 +226,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                     <div class="card shadow-sm">
                         <div class="card-body row">
                             <div class="col-3">
-                                <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" alt="Gambar" style="width: 100%; height: auto;">
+                                <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" loading="lazy" alt="Gambar" style="width: 100%; height: auto;">
                             </div>
                             <div class="col-9 ">
                                 <span class="badge rounded-pill text-bg-secondary mt-2">latest news</span>
@@ -295,7 +295,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 <div class="card-hover p-3">
                     <div class="image-box">
                         <a href="{{ $sel->url }}">
-                            <img src="{{ url(asset('assets/uploadimg/kegiatan_selesai/'.$sel->img)) }}" alt="Image" class="img-fluid">
+                            <img src="{{ url(asset('assets/uploadimg/kegiatan_selesai/'.$sel->img)) }}" loading="lazy" alt="Image" class="img-fluid">
                         </a>
 
                     </div>
@@ -337,7 +337,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 </div>
                 <div class="d-flex flex-wrap gap-2 mt-3">
                     @foreach ($anggota as $agt)
-                    <img src="{{ url(asset('assets/uploadimg/anggota/'.$agt->img)) }}" alt="Anggota" class="rounded-circle img-anggota" width="80" height="80">
+                    <img src="{{ url(asset('assets/uploadimg/anggota/'.$agt->img)) }}" loading="lazy" alt="Anggota" class="rounded-circle img-anggota" width="80" height="80">
                     @endforeach
                 </div>
             </div>
@@ -376,16 +376,16 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="my-2">
-                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/IMG_0066.JPG") }}" loading="lazy" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/IMG_0131.JPG") }}" loading="lazy" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/IMG_0839.JPG") }}" loading="lazy" alt="" class="img-fluid">
                 </div>
                 <div class="my-2">
-                    <img src="{{ asset("assets/img/s.JPG") }}" alt="" class="img-fluid">
+                    <img src="{{ asset("assets/img/b.JPG") }}" loading="lazy" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
