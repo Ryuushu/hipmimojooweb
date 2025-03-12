@@ -849,7 +849,7 @@ section,
   width: 100%;
   min-height: 100vh;
   /* display: flex; */
-  background: url("../img/a.JPG") top left;
+  background: url("../img/fff.JPG") top left;
   background-size: cover;
 }
 .imgbac:before {

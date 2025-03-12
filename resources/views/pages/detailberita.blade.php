@@ -8,7 +8,7 @@
             <div class="col-lg-8 ">
                 <h1 class="fw-bold">{{ $berita->title }}</h1>
                 <p class="text-muted">Dipublikasikan pada {{ \Carbon\Carbon::parse($berita->date)->translatedFormat('j M Y') }}</p>
-                <img src="{{ url(asset('assets/uploadimg/berita/'.$berita->thumbnail)) }}" class="img-fluid rounded" alt="Gambar Berita" width="800" height="400">
+                <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$berita->thumbnail)) }}" class="img-fluid rounded" alt="Gambar Berita" width="800" height="400">
                 <div class="mt-2">
                     {!! $berita->kontent !!}
                 </div>
@@ -22,7 +22,7 @@
                             <div class="row">
                                 @foreach ($beritalain as $ber)
                                 <div class="col-lg-4">
-                                    <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" class="card-img-top" alt="Berita 1">
+                                    <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" class="card-img-top" alt="Berita 1">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

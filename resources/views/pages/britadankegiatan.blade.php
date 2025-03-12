@@ -15,7 +15,7 @@
             <div class="col-md-5">
                 @if(!empty($latestNews))
                 <div class="card my-2">
-                    <img src="{{ url(asset('assets/uploadimg/berita/'.$latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
+                    <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
                     <div class="card-body">
                         <span class="badge rounded-pill text-bg-secondary my-2 py-2">latest news</span>
 
@@ -32,7 +32,7 @@
                 <div class="card my-2">
                     <div class="row">
                         <div class="col-3">
-                            <img src="{{ url(asset('assets/uploadimg/berita/'.$latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
+                            <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
                         </div>
                         <div class="col-9">
                             <span class="badge rounded-pill text-bg-secondary my-3 py-2">latest news</span>
@@ -101,7 +101,7 @@
         @foreach($newsList as $news)
         <div class="col-md-3">
             <div class="card">
-                <img src="{{ url(asset('assets/uploadimg/berita/'.$news->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
+                <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$news->thumbnail)) }}" width="100%" class="img-fluid" alt="HIPMI JAYA">
                 <div class="card-body">
 
                     <h5 class="card-title"><a href="{{ route('beranda.detail.berita', optional($news)->id) }}" class="text-decoration-none fw-bold">

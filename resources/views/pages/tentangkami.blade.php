@@ -3,7 +3,8 @@
 <!-- Hero Section -->
 
 <section id="about" class="about section mt-5">
-    <h1 class="text-center mb-3">Tentang Kami</h1>
+    <h1 class="text-center mb-5">Tentang Kami</h1>
+      <img loading="lazy" src="{{ asset("assets/img/ass.JPG") }}"  loading="lazy" alt="" class="img-fluid">
     <div class="container" data-aos="fade-up">
         <div class="row gy-3">
             <div class="col-lg-7 d-flex flex-column justify-content-center p-5 bg-yelow" data-aos="fade-up" data-aos-delay="200">
@@ -157,8 +158,19 @@
             </div>
         </div>
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/about.jpg" alt="" class="img-fluid">
-        </div>
+                <div class="my-2">
+                    <img loading="lazy" src="{{ asset("assets/img/IMG_0066.JPG") }}" loading="lazy" alt="" class="img-fluid">
+                </div>
+                <div class="my-2">
+                    <img loading="lazy" src="{{ asset("assets/img/IMG_0131.JPG") }}" loading="lazy" alt="" class="img-fluid">
+                </div>
+                <div class="my-2">
+                    <img loading="lazy" src="{{ asset("assets/img/IMG_0839.JPG") }}" loading="lazy" alt="" class="img-fluid">
+                </div>
+                <div class="my-2">
+                    <img loading="lazy" src="{{ asset("assets/img/b.JPG") }}" alt="" loading="lazy" class="img-fluid">
+                </div>
+            </div>
     </div>
 </div>
 @endsection

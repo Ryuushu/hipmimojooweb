@@ -33,7 +33,7 @@
                 </form>
             </div>
             <div class="col-lg-2 text-center">
-                <img src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 100px;width: 100%;">
+                <img loading="lazy" src="{{ asset("assets/img/Logo hip.png") }}" alt="BPC HIPMI Kota Mojokerto" class="img-fluid" style="max-width: 100px;width: 100%;">
             </div>
         </div>
     </div>
