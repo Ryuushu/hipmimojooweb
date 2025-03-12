@@ -104,9 +104,9 @@
                 continue;
                 }
                 @endphp
-                <div class="row {{ $index ==0 ?"justify-content-center":"" }} gap-4 mb-4">
+                <div class="row {{ $index ==0 ?"justify-content-center":"" }} g-4 mb-4">
                     @foreach ($t as $s)
-                    <article class="col-4">
+                    <article class="col-md-3 col-4">
                         <img class="img-fluid object-fit-cover" style="aspect-ratio: 1/1;" src="{{ asset('assets/uploadimg/pengurus/'.$s->img) }}" alt="">
                         <center>
                             <h6 class="mt-2 fw-bold">{{ $s->nama_anggota }}</h6>
