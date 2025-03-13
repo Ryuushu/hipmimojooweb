@@ -3,7 +3,7 @@
 <!-- Hero Section -->
 
 <section class="bg-light mt-5">
-    <h1 class="text-center my-3">Setruktur Organisasi</h1>
+    <h1 class="text-center my-3">Struktur Organisasi</h1>
     <!-- bagian ketua pengurus -->
 
     <div class="bg-utama" data-aos="fade-up" data-aos-delay="200" style="background-image: url('{{ asset("assets/img/Group-history.png") }}'); background-size: cover; background-repeat: repeat;">
@@ -104,12 +104,12 @@
                 continue;
                 }
                 @endphp
-                <div class="row {{ $index ==0 ?"justify-content-center":"" }} g-4 mb-4">
+                <div class="row {{ $index ==0 ?"justify-content-center":"" }} g-4 mb-5">
                     @foreach ($t as $s)
-                    <article class="col-4">
+                    <article class="col-4 mt-5">
                         <img class="img-fluid object-fit-cover" style="aspect-ratio: 1/1;" src="{{ asset('assets/uploadimg/pengurus/'.$s->img) }}" alt="">
                         <center>
-                            <h6 class="mt-2 fw-bold">{{ $s->nama_anggota }}</h6>
+                            <h6 class="mt-2 fw-bold fs-6 fs-md-5 fs-lg-2" >{{ $s->nama_anggota }}</h6>
                             <span>{{ $s->jabatan }}</span>
                         </center>
                     </article>

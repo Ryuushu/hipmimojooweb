@@ -2,7 +2,7 @@
     <div class="branding d-flex align-items-center justify-content-center">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="/" class="logo d-flex align-items-center text-decoration-none">
-                <img loading="lazy" src="{{ asset('assets/img/Logo hip.png') }}" alt="">
+                <img loading="lazy" src="{{ asset('assets/img/Logo hip.png') }}" alt="Logo Hipmi Kota Mojokerto">
                 <h2 class="sitename text-light">{{ optional($data)->title_web }}</h2>
             </a>
             <nav id="navmenu" class="navmenu">

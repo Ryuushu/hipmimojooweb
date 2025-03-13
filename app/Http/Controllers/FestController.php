@@ -38,20 +38,29 @@ class FestController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        // dd($request->all());
+
+        $validatedData = $request->validate([
             'nama_fest' => 'required|string|max:255',
             'deskripsi_fest' => 'required|string',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'jadwal_fest' => 'required|string',
             'lokasi' => 'required|string|max:255',
             'rangkaian_acara' => 'required|string',
         ]);
-
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/uploadimg/fest/'), $imageName);
+            $validatedData['thumbnail'] = $imageName;
+        }
         Fest::create([
-            'nama_fest' => $request->nama_fest,
-            'deskripsi_fest' => $request->deskripsi_fest,
-            'jadwal_fest' => $request->jadwal_fest,
-            'lokasi' => $request->lokasi,
-            'rangkaian_acara' => $request->rangkaian_acara,
+            'thumbnail' => $validatedData['thumbnail'],
+            'nama_fest' => $validatedData['nama_fest'],
+            'deskripsi_fest' => $validatedData['deskripsi_fest'],
+            'jadwal_fest' => $validatedData['jadwal_fest'],
+            'lokasi' => $validatedData['lokasi'],
+            'rangkaian_acara' => $validatedData['rangkaian_acara'],
         ]);
 
         return redirect()->route('festad.index')->with('success', 'Festival berhasil ditambahkan!');
@@ -65,28 +74,35 @@ class FestController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nama_fest' => 'required|string|max:255',
             'deskripsi_fest' => 'required|string',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg|max:2048',
             'jadwal_fest' => 'required|string',
             'lokasi' => 'required|string|max:255',
             'rangkaian_acara' => 'required|string',
         ]);
-
         $festival = Fest::findOrFail($id);
-        $festival->update([
-            'nama_fest' => $request->nama_fest,
-            'deskripsi_fest' => $request->deskripsi_fest,
-            'jadwal_fest' => $request->jadwal_fest,
-            'lokasi' => $request->lokasi,
-            'rangkaian_acara' => $request->rangkaian_acara,
-        ]);
-
+        if ($request->hasFile('thumbnail')) {
+            // Hapus gambar lama jika ada
+            if ($festival->thumbnail && file_exists(public_path('assets/uploadimg/fest/' . $festival->thumbnail))) {
+                unlink(public_path('assets/uploadimg/fest/' . $festival->thumbnail));
+            }
+            $image = $request->file('thumbnail');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/uploadimg/fest/'), $imageName);
+            $validatedData['thumbnail'] = $imageName;
+        }
+        $festival->update($validatedData);
         return redirect()->route('festad.index')->with('success', 'Festival berhasil diperbarui!');
     }
     public function destroy($id)
     {
         $fest = Fest::findOrFail($id);
+        if ($fest->thumbnail && file_exists(public_path('assets/uploadimg/fest/' . $fest->thumbnail))) {
+            unlink(public_path('assets/uploadimg/fest/' . $fest->thumbnail));
+        }
+
         $fest->delete();
         return redirect()->route('festad.index')->with('success', 'Festival berhasil dihapus.');
     }

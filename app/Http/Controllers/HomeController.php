@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function sejarah()
     {
         $data = Beranda::latest()->first();
-        return view('pages.sejarah', compact( 'data'));
+        return view('pages.sejarah', compact('data'));
     }
     public function kontak()
     {
@@ -51,27 +51,30 @@ class HomeController extends Controller
 
         $data = Beranda::latest()->first();
         $divisi = Divisi::get();
-        return view('pages.pengurus', compact( 'data', "divisi"));
+        return view('pages.pengurus', compact('data', "divisi"));
     }
 
     public function beritakegiatan()
     {
         $data = Beranda::latest()->first();
 
-        $newsList = Berita::with('kategori')->latest()->get();
+        $newsList = Berita::with('kategori')->paginate(8);
+        $newsList4 = Berita::with('kategori')->limit(5)->orderBy("created_at", "DESC")->get();
+        $newsList4->shift();
         $latestNews = Berita::with('kategori')->latest()->limit(1)->first();
         // dd($latestNews);
         $events = Kegiatan::limit(5)->latest()->get();
-        return view('pages.britadankegiatan', compact('newsList', 'latestNews', 'events', 'data'));
+        return view('pages.britadankegiatan', compact('newsList', 'latestNews', 'events', 'data', 'newsList4'));
     }
-    public function berita($id)
+    public function berita($id, $slug)
     {
         $data = Beranda::latest()->first();
-        $berita = Berita::with('kategori')->where('id', $id)->first();
+        $berita = Berita::with('kategori')->where('id', $id)->firstOrFail();
         $beritalain = Berita::latest()->limit(5)->get();
+
         return view('pages.detailberita', compact('data', 'berita', 'beritalain'));
     }
-    public function kegiatan($id)
+    public function kegiatan($id, $slug)
     {
         $data = Beranda::latest()->first();
         $kegiatan = Kegiatan::where('id', $id)->first();
@@ -101,10 +104,11 @@ class HomeController extends Controller
         }
         return view('pages.proker', compact('groupedData', 'data'));
     }
-    public function detailfest($id)
+    public function detailfest($id, $slug)
     {
         $data = Beranda::latest()->first();
         $fest = Fest::where('id', $id)->first();
-        return view('pages.detailfest', compact('data', 'fest'));
+        $events = Fest::limit(5)->latest()->get();
+        return view('pages.detailfest', compact('data', 'fest', 'events'));
     }
 }

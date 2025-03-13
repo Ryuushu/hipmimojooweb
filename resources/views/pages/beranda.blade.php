@@ -1,5 +1,19 @@
 @extends("layouts.branda.appbranda")
+
+@section('meta')
+<meta property="og:title" content="Hipmi Kota Mojokerto - Mendorong Wirausaha Muda">
+<meta property="og:description" content="Gabung dengan Hipmi Kota Mojokerto untuk mengembangkan bisnis dan jejaring wirausaha muda!">
+<meta property="og:image" content="{{ asset('assets/img/Logo hip.png') }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hipmi Kota Mojokerto - Mendorong Wirausaha Muda">
+<meta name="twitter:description" content="Gabung dengan Hipmi Kota Mojokerto untuk mengembangkan bisnis dan jejaring wirausaha muda!">
+<meta name="twitter:image" content="{{ asset('assets/img/Logo hip.png') }}">
+@endsection
 @section('konten')
+
 <!-- Hero Section -->
 <div class="imgbac">
     <div class="container">
@@ -223,19 +237,21 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
             <div class="col-lg-6 ">
                 <div class="row my-2 p-2">
                     @foreach ($berita as $ber)
-                    <div class="card shadow-sm">
-                        <div class="card-body row">
-                            <div class="col-3">
-                                <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" loading="lazy" alt="Gambar" style="width: 100%; height: auto;">
-                            </div>
-                            <div class="col-9 ">
-                                <span class="badge rounded-pill text-bg-secondary mt-2">latest news</span>
-                                <h5 class="mb-1"><a href="{{ route('beranda.detail.berita', $ber->id) }}" class="text-decoration-none fw-bold">
+                    <div class="card shadow-sm mt-2">
+                        <a href="{{ route('beranda.detail.berita', ['id' => $ber->id, 'slug' => Str::slug($ber->title)]) }}" class="text-decoration-none">
+                            <div class="card-body row">
+                                <div class="col-3">
+                                    <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" loading="lazy" alt="Gambar" style="width: 100%; height: auto;">
+                                </div>
+                                <div class="col-9 ">
+                                    <span class="badge rounded-pill text-bg-secondary mt-2">latest news</span>
+                                    <h5 class="mb-1 fw-bold">
                                         {{ $ber->title }}
-                                    </a></h5>
-                                <p>{!! $ber->kontent !!}</p>
+                                    </h5>
+                                    <p class="text-description-home text-secondary">{{ strip_tags($ber->kontent)  }}</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
 
@@ -250,20 +266,22 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 <div class="row my-2 p-2">
                     @if (!empty($kegiatan) && count($kegiatan) > 0)
                     @foreach ($kegiatan as $keg)
-                    <div class="card shadow-sm event-card">
-                        <div class="card-body d-flex align-items-center">
-                            <div class="me-3 text-center">
-                                <div class="fw-bold text-primary">{{ \Carbon\Carbon::parse($keg->date)->translatedFormat('M') }}</div>
-                                <div class="display-5 fw-bold">{{ \Carbon\Carbon::parse($keg->date)->format('d') }}</div>
-                            </div>
-                            <div>
-                                <h5 class="mb-1"><a href="{{ route('beranda.detail.kegiatan', $keg->id) }}" class="text-decoration-none fw-bold">
+                    <div class="card shadow-sm event-card mt-2">
+                        <a href="{{ route('beranda.detail.kegiatan', ['id' => $keg->id, 'slug' => Str::slug($keg->title)]) }}" class="text-decoration-none ">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="me-3 text-center">
+                                    <div class="fw-bold text-primary">{{ \Carbon\Carbon::parse($keg->date)->translatedFormat('M') }}</div>
+                                    <div class="display-5 fw-bold text-primary">{{ \Carbon\Carbon::parse($keg->date)->format('d') }}</div>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1 fw-bold">
                                         {{ $keg->title }}
-                                    </a></h5>
-                                <p class="mb-1 text-muted"><strong>{{ $keg->jadwal }}</strong></p>
-                                <p class="mb-0 text-muted"><i class="bi bi-geo-alt"></i>{{ $keg->lokasi }}</p>
+                                    </h5>
+                                    <p class="mb-1 text-muted text-secondary"><strong>{{ $keg->jadwal }}</strong></p>
+                                    <p class="mb-0 text-muted text-secondary"><i class="bi bi-geo-alt"></i>{{ $keg->lokasi }}</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
 

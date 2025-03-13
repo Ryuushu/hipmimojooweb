@@ -16,5 +16,6 @@ class Fest extends Model
         'jadwal_fest',
         'lokasi',
         'rangkaian_acara',
+        'thumbnail'
     ];
 }

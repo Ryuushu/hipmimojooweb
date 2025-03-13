@@ -49,6 +49,7 @@ class BeritaController extends Controller
             'kategori_id'=>'required',
             'date' => 'required|date',
         ]);
+        
         if ($request->hasFile('thumbnail')) {
             $image = $request->file('thumbnail');
             $imageName = time() . '.' . $image->getClientOriginalExtension();

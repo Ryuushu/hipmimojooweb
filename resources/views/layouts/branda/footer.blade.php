@@ -1,4 +1,4 @@
-<footer class="text-white py-5 mt-4" style="background-color: #07225E;">
+<footer class="text-white py-5" style="background-color: #07225E;">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
@@ -8,7 +8,7 @@
                 <p><i class="bi bi-envelope"></i> hipmikotamojokerto@gmail.com / info@hipmimojokertokota.org
                 </p>
                 <p><i class="bi bi-telephone"></i> TEL: 081-552-211-24</p>
-                <!-- <p><i class="bi bi-whatsapp"></i> WHATSAPP: 0813-9990-3752</p> -->
+                <p><i class="bi bi-whatsapp"></i> WHATSAPP: 081-552-211-24</p>
                 <div>
                     <a href="https://www.instagram.com/hipmikotamojokerto/" class="text-white "><i class="bi bi-instagram fs-4"></i></a>
                     <a href="https://www.youtube.com/@hipmimojokertokota" target="_blank" class="text-light">

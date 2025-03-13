@@ -21,9 +21,15 @@ Route::get('/tentang-kami', [HomeController::class, 'tentang']);
 Route::get('/tentang-kami/sejarah', [HomeController::class, 'sejarah']);
 Route::get('/tentang-kami/pengurus', [HomeController::class, 'organisasi']);
 Route::get('/berita-dan-kegiatan', [HomeController::class, 'beritakegiatan']);
-Route::get('/detail-berita/{id}', [HomeController::class, 'berita'])->name('beranda.detail.berita');
-Route::get('/detail-kegiatan/{id}', [HomeController::class, 'kegiatan'])->name('beranda.detail.kegiatan');
-Route::get('/detail-fest/{id}', [HomeController::class, 'detailfest'])->name('beranda.detail.fest');
+Route::get('/dberita/{id}-{slug}', [HomeController::class, 'berita'])
+    ->name('beranda.detail.berita')
+    ->where('id', '[0-9]+');
+Route::get('/dkegiatan/{id}-{slug}', [HomeController::class, 'kegiatan'])
+    ->name('beranda.detail.kegiatan')
+    ->where('id', '[0-9]+');
+Route::get('/dfest/{id}-{slug}', [HomeController::class, 'detailfest'])
+    ->name('beranda.detail.fest')
+    ->where('id', '[0-9]+');
 Route::post('/send-mail', [ContactController::class, 'sendEmail'])->name('email.send');
 Route::get('/fest', [HomeController::class, 'fest'])->name('home.fest');
 Route::get('/tentang-kami/proker', [HomeController::class, 'proker'])->name('home.proker');

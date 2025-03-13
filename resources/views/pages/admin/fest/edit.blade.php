@@ -1,10 +1,20 @@
 <x-app-layout>
     <div class="container">
         <h2>Edit HIPMI Fest</h2>
-        <form action="{{ route('festad.update', $fest->id) }}" method="POST">
+        <form action="{{ route('festad.update', $fest->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
-
+            
+            <div class="mb-3">
+                <label>Thumbnail</label>
+                <br>
+                <img src="{{ url(asset('assets/uploadimg/fest/'.$fest->thumbnail)) }}" width="100" alt="Thumbnail">
+                <input type="file" name="thumbnail" class="form-control mt-2" accept="image/*">
+                <small class="text-muted">Kosongkan jika tidak ingin mengubah gambar.</small>
+                @error('thumbnail')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label>Nama Festival</label>
                 <input type="text" name="nama_fest" class="form-control" value="{{ old('nama_fest', $fest->nama_fest) }}" required>

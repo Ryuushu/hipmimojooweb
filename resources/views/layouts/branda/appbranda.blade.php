@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Hipmi Kota Mojokerto </title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <title>@yield('title', 'Hipmi Kota Mojokerto')</title>
+    @yield('meta') <!-- Tempat untuk meta tag dinamis -->
+
+    <meta name="description" content="Hipmi Kota Mojokerto - Organisasi pengusaha muda yang mendorong pertumbuhan bisnis dan ekonomi di Kota Mojokerto.">
+    <meta name="keywords" content="Hipmi, Pengusaha Muda, Kota Mojokerto, Bisnis, Startup, UMKM, Wirausaha">
 
     <!-- Favicons -->
     <link href="{{ asset("assets/img/Logo hip.png") }}" rel="icon">
@@ -27,33 +29,43 @@
         .bg-grey {
             background-color: #EEF1F8 !important;
         }
+
         .bg-yelow {
             background-color: #EFD43D !important;
         }
+
         .bg-yelow-value {
             background-color: rgb(249, 236, 166) !important;
         }
+
         .bg-tranparntvisi {
             background-color: rgb(17, 37, 89) !important;
         }
+
         .bg-tranparntmisi {
             background-color: rgb(24, 31, 50) !important;
         }
+
         .bg-light {
             background-color: #fff !important;
         }
+
         .bg-utama {
             background-color: #07225E !important;
         }
+
         .text-yelow {
             color: #EFD43F
         }
+
         .text-utama {
             color: #07225E !important;
         }
+
         .text-primary {
             color: #07225E !important;
-        } 
+        }
+
         .timeline {
             position: relative;
             padding: 20px 0;
@@ -133,6 +145,23 @@
             text-overflow: ellipsis;
         }
 
+        .text-description-4 {
+            display: block;
+            display: -webkit-box;
+            -webkit-line-clamp: 13;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .text-description-home {
+            display: block;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         #header {
             transition: top 0.3s ease-in-out;
             position: fixed;
@@ -161,7 +190,16 @@
         <div></div>
         <div></div>
     </div>
-
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Hipmi Kota Mojokerto",
+            "url": "https://hipmikotamojokerto.com",
+            "logo": "{{ asset('assets/img/Logo hip.png') }}",
+            "description": "Organisasi pengusaha muda yang mendukung perkembangan bisnis dan ekonomi di Kota Mojokerto."
+        }
+    </script>
     <!-- Vendor JS Files -->
     <script src="{{ asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
     <script src="{{ asset("assets/vendor/php-email-form/validate.js") }}"></script>
@@ -173,7 +211,6 @@
     <script src="{{ asset("assets/vendor/imagesloaded/imagesloaded.pkgd.min.js") }}"></script>
     <script src="{{ asset("assets/vendor/isotope-layout/isotope.pkgd.min.js") }}"></script>
     <script src="{{ asset("assets/js/main.js") }}"></script>
-
     @yield("scripts")
 </body>
 

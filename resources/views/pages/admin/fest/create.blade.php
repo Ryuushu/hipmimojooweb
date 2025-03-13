@@ -1,8 +1,15 @@
 <x-app-layout>
     <div class="container">
         <h2>Tambah HIPMI Fest</h2>
-        <form action="{{ route('festad.store') }}" method="POST">
+        <form action="{{ route('festad.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <div class="mb-3">
+                <label>Thumbnail</label>
+                <input type="file" name="thumbnail" class="form-control @error('thumbnail') is-invalid @enderror" accept="image/*" required>
+                @error('thumbnail')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label>Nama Festival</label>
                 <input type="text" name="nama_fest" class="form-control" value="{{ old('nama_fest') }}" required>
@@ -59,7 +66,7 @@
             .catch(error => {
                 console.error(error);
             });
-            ClassicEditor.create(document.querySelector('#deskripsi_fest'))
+        ClassicEditor.create(document.querySelector('#deskripsi_fest'))
             .then(editor => {
                 editorInstance = editor;
             })

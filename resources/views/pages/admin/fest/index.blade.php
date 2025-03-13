@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Thumbnail</th>
                         <th>Nama Fest</th>
                         <th>Deskripsi Acara</th>
                         <th>Jadwal</th>
@@ -31,6 +32,13 @@
                 ajax: "{{ route('festad.index') }}",
                 columns: [{
                         data: 'id'
+                    },
+                    {
+                        data: 'thumbnail',
+                        render: function(data) {
+
+                            return `<img src="{{ url(asset('assets/uploadimg/fest')) }}/${data}" width="50" height="50">`;
+                        }
                     },
                     {
                         data: 'nama_fest',
