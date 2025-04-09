@@ -16,7 +16,7 @@
                 @if(!empty($latestNews))
                 <div class="card my-2">
                     <a href="{{ route('beranda.detail.berita', ['id' => $latestNews->id, 'slug' => Str::slug($latestNews->title)]) }}">
-                        <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="berita">
+                        <img loading="lazy" src="{{ url(asset($latestNews->thumbnail)) }}" width="100%" class="img-fluid" alt="berita">
                         <div class="card-body">
                             <span class="badge rounded-pill text-bg-secondary my-2 py-2">latest news</span>
                             <h5 class="text-decoration-none fw-bold">
@@ -34,7 +34,7 @@
                 <a href="{{ route('beranda.detail.berita', ['id' => $news->id, 'slug' => Str::slug($news->title)]) }}" class="text-decoration-none d-block">
                     <div class="row">
                         <div class="col-3">
-                            <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$news->thumbnail)) }}"
+                            <img loading="lazy" src="{{ url(asset($news->thumbnail)) }}"
                                 width="100%" height="100%" style="object-fit: cover;" alt="berita">
                         </div>
                         <div class="col-9">
@@ -105,7 +105,7 @@
         <div class="col-md-3 mt-4">
             <a href="{{ route('beranda.detail.berita', ['id' => $news->id, 'slug' => Str::slug($news->title)]) }}" class="text-decoration-none d-block">
                 <div class="card d-flex flex-column h-100">
-                    <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$news->thumbnail)) }}"
+                    <img loading="lazy" src="{{ url(asset($news->thumbnail)) }}"
                         class="img-fluid" style="object-fit: cover; height: 200px;" alt="berita">
                     <div class="card-body d-flex flex-column flex-grow-1">
                         <h5 class="flex-grow-1 text-description fw-bold">

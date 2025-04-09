@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\AnggotaPengurus;
 use App\Models\Beranda;
 use App\Models\Berita;
 use App\Models\Divisi;
@@ -13,6 +14,7 @@ use App\Models\Kenapa;
 use App\Models\Proker;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
@@ -53,12 +55,42 @@ class HomeController extends Controller
         $divisi = Divisi::get();
         return view('pages.pengurus', compact('data', "divisi"));
     }
+    public function apiDivisi(Request $request)
+    {
+        $perPage = 1;
+        $page = $request->input('page', 1);
+
+        $divisi = Divisi::with(['anggotaPengurus' => function ($q) {
+            $q->orderBy('tingkatan');
+        }])->paginate($perPage, ['*'], 'page', $page);
+
+        $result = $divisi->getCollection()->map(function ($d) {
+            $tingkatan = [];
+
+            for ($i = 1; $i <= 5; $i++) {
+                $tingkatan[] = $d->anggotaPengurus->where('tingkatan', $i)->values();
+            }
+
+            return [
+                'id' => $d->id,
+                'bidang' => $d->bidang,
+                'nama_devisi' => $d->nama_devisi,
+                'tingkatan' => $tingkatan,
+            ];
+        });
+
+        return Response::json([
+            'data' => $result,
+            'next_page_url' => $divisi->nextPageUrl(),
+        ]);
+    }
+
 
     public function beritakegiatan()
     {
         $data = Beranda::latest()->first();
 
-        $newsList = Berita::with('kategori')->paginate(8);
+        $newsList = Berita::with('kategori')->orderBy("created_at", "DESC")->paginate(8);
         $newsList4 = Berita::with('kategori')->limit(5)->orderBy("created_at", "DESC")->get();
         $newsList4->shift();
         $latestNews = Berita::with('kategori')->latest()->limit(1)->first();

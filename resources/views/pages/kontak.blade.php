@@ -16,7 +16,7 @@
 
                 <div class="info-wrap">
                     <div>
-                        <h3>Badan Pengurus Cabang – Kota Mojokerto</h3>
+                        <h3>Badan Pengurus Cabang - Kota Mojokerto</h3>
                     </div>
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                         <i class="bi bi-geo-alt flex-shrink-0"></i>

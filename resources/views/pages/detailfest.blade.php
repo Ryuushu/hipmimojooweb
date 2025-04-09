@@ -8,7 +8,7 @@
             <!-- Kolom utama -->
             <div class="col-lg-8 col-md-7 col-sm-12">
                 <div class="text-center"> <!-- Untuk membuat gambar berada di tengah -->
-                    <img loading="lazy" src="{{ url(asset('assets/uploadimg/fest/'.$fest->thumbnail)) }}" 
+                    <img loading="lazy" src="{{ url(asset($fest->thumbnail)) }}" 
                         class="img-fluid rounded" 
                         alt="Gambar Berita" 
                         style="width: 50%; height: auto;">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Yajra\DataTables\Facades\DataTables;
 
 class AnggotaController extends Controller
@@ -42,9 +44,16 @@ class AnggotaController extends Controller
         ]);
 
         if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/anggota'), $imageName);
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/anggota/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imagePath = "assets/uploadimg/anggota/" . $fileName;
+            $imageName = $imagePath;
             $validatedData['img'] = $imageName;
         }
 
@@ -65,12 +74,20 @@ class AnggotaController extends Controller
         ]);
         $anggota = Anggota::findOrFail($id);
         if ($request->hasFile('img')) {
-            if ($anggota->img && file_exists(public_path('assets/uploadimg/anggota/' . $anggota->img))) {
-                unlink(public_path('assets/uploadimg/anggota/' . $anggota->img));
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            // $oldPath = public_path($anggotaPengurus->img);
+            if ($anggota->img && file_exists(public_path( $anggota->img))) {
+                unlink(public_path($anggota->img));
             }
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/anggota/'), $image);
+            // Simpan file baru dengan nama unik
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/anggota/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imageName ="assets/uploadimg/anggota/" . $fileName;
             $validatedData['img'] = $imageName;
         }
 
@@ -82,8 +99,8 @@ class AnggotaController extends Controller
     public function destroy($id)
     {
         $anggota = Anggota::findOrFail($id);
-        if ($anggota->thumbnail && file_exists(public_path('assets/uploadimg/anggota/' . $anggota->img))) {
-            unlink(public_path('assets/uploadimg/anggota/' . $anggota->img));
+        if ($anggota->img && file_exists(public_path( $anggota->img))) {
+            unlink(public_path( $anggota->img));
         }
         $anggota->delete();
         return redirect()->route('anggota.index')->with('success', 'pengurus berhasil dihapus.');

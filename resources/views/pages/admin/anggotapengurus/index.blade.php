@@ -33,7 +33,7 @@
                     {
                         data: 'img',
                         render: function(data) {
-                            return `<img src="{{ url(asset('assets/uploadimg/pengurus/')) }}/${data}" width="50" height="50">`;
+                            return '<img src="' + window.location.origin + '/' + data + '" width="50" height="50" loading="lazy">';
                         }
                     },
                     {
@@ -53,7 +53,7 @@
             $(document).on('click', '.delete-btn', function() {
                 if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
                     $.ajax({
-                        url: "{{ route("anggota-pengurus.index",$id) }}/" + $(this).data('id'),
+                        url: "{{ route('anggota-pengurus.index',$id) }}/" + $(this).data('id'),
                         type: "DELETE",
                         data: {
                             _token: "{{ csrf_token() }}"

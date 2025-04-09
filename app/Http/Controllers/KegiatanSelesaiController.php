@@ -6,6 +6,8 @@ use App\Models\KegiatanSelesai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class KegiatanSelesaiController extends Controller
 {
@@ -22,7 +24,7 @@ class KegiatanSelesaiController extends Controller
                     </form>';
                     return $btn;
                 })
-              
+
                 ->rawColumns(['aksi'])
                 ->make(true);
         }
@@ -41,13 +43,19 @@ class KegiatanSelesaiController extends Controller
             'title' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'url' => 'required',
-            'img' => 'image|mimes:jpeg,png,jpg,gif|max:5048',
+            'img' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/kegiatan_selesai'), $imageName);
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/kegiatan_selesai/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imageName = 'assets/uploadimg/kegiatan_selesai/' . $fileName;
             $validatedData['img'] = $imageName;
         }
 
@@ -71,15 +79,22 @@ class KegiatanSelesaiController extends Controller
 
         // Cek apakah ada gambar baru yang diunggah
         if ($request->hasFile('img')) {
-            // Hapus gambar lama jika ada
-            if ($kegiatan_selesai->img && file_exists(public_path('assets/uploadimg/kegiatan_selesai/' . $kegiatan_selesai->img))) {
-                unlink(public_path('assets/uploadimg/kegiatan_selesai/' . $kegiatan_selesai->img));
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            if ($kegiatan_selesai->img && file_exists(public_path($kegiatan_selesai->img))) {
+                unlink(public_path($kegiatan_selesai->img));
             }
-
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/kegiatan_selesai/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imageName = "assets/uploadimg/kegiatan_selesai/" . $fileName;
             // Simpan gambar baru
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/kegiatan_selesai/'), $imageName);
+            // $image = $request->file('img');
+            // $imageName = time() . '.' . $image->getClientOriginalExtension();
+            // $image->move(public_path('assets/uploadimg/kegiatan_selesai/'), $imageName);
 
             // Tambahkan nama gambar ke data yang akan diperbarui
             $validatedData['img'] = $imageName;
@@ -95,8 +110,8 @@ class KegiatanSelesaiController extends Controller
     public function destroy(KegiatanSelesai $kegiatan_selesai)
     {
         // Hapus gambar jika ada
-        if ($kegiatan_selesai->img && file_exists(public_path('assets/uploadimg/kegiatan_selesai/' . $kegiatan_selesai->img))) {
-            unlink(public_path('assets/uploadimg/kegiatan_selesai/' . $kegiatan_selesai->img));
+        if ($kegiatan_selesai->img && file_exists(public_path($kegiatan_selesai->img))) {
+            unlink(public_path($kegiatan_selesai->img));
         }
 
         // Hapus data dari database

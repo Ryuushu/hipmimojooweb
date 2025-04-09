@@ -14,6 +14,7 @@ use App\Http\Controllers\KegiatanSelesaiController;
 use App\Http\Controllers\KenapaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProkerController;
+use App\Http\Middleware\CacheStaticImages;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -33,14 +34,24 @@ Route::get('/dfest/{id}-{slug}', [HomeController::class, 'detailfest'])
 Route::post('/send-mail', [ContactController::class, 'sendEmail'])->name('email.send');
 Route::get('/fest', [HomeController::class, 'fest'])->name('home.fest');
 Route::get('/tentang-kami/proker', [HomeController::class, 'proker'])->name('home.proker');
+Route::get('/api/pengurus-divisi', [HomeController::class, 'apiDivisi']);
 
 
 Route::get('/kontak', [HomeController::class, 'kontak']);
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware([CacheStaticImages::class])->group(function () {
+    Route::get('assets/uploadimg/{folder}/{filename}', function ($folder, $filename) {
+        $path = public_path("assets/uploadimg/{$folder}/{$filename}");
 
+        if (!file_exists($path)) {
+            abort(404);
+        }
 
+        return response()->file($path);
+    })->where('filename', '.*');
+});
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -17,7 +17,7 @@
         <a href="{{ route('beranda.detail.fest', ['id' => $event->id, 'slug' => Str::slug($event->nama_fest)]) }}" class="stretched-link">
         <div class="row">
             <div class="col-2">
-                <img loading="lazy" src="{{ url(asset('assets/uploadimg/fest/'.$event->thumbnail)) }}"
+                <img loading="lazy" src="{{ url(asset($event->thumbnail)) }}"
                     width="100%" height="100%" style="object-fit: cover;" alt="berita">
             </div>
             <div class="col-10">

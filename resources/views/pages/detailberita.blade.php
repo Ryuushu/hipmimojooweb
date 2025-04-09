@@ -21,7 +21,7 @@
             <div class="col-lg-8 ">
                 <h1 class="fw-bold">{{ $berita->title }}</h1>
                 <p class="text-muted">Dipublikasikan pada {{ \Carbon\Carbon::parse($berita->date)->translatedFormat('j M Y') }}</p>
-                <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$berita->thumbnail)) }}" class="img-fluid rounded" alt="Gambar Berita" width="800" height="400">
+                <img loading="lazy" src="{{ url(asset($berita->thumbnail)) }}" class="img-fluid rounded" alt="Gambar Berita" width="800" height="400">
                 <div class="mt-2">
                     {!! $berita->kontent !!}
                 </div>
@@ -35,7 +35,7 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-4">
-                                    <img loading="lazy" src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" width="100%" height="100%"
+                                    <img loading="lazy" src="{{ url(asset($ber->thumbnail)) }}" width="100%" height="100%"
                                         style="object-fit: cover;" alt="berita" alt="Berita 1">
                                 </div>
                                 <div class="col-8">

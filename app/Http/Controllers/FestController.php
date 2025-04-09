@@ -6,6 +6,8 @@ use App\Models\Anggota;
 use App\Models\Fest;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Yajra\DataTables\Facades\DataTables;
 
 class FestController extends Controller
@@ -49,9 +51,16 @@ class FestController extends Controller
             'rangkaian_acara' => 'required|string',
         ]);
         if ($request->hasFile('thumbnail')) {
-            $image = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/fest/'), $imageName);
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('thumbnail');
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/fest/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imagePath = "assets/uploadimg/fest/" . $fileName;
+            $imageName = $imagePath;
             $validatedData['thumbnail'] = $imageName;
         }
         Fest::create([
@@ -84,14 +93,28 @@ class FestController extends Controller
         ]);
         $festival = Fest::findOrFail($id);
         if ($request->hasFile('thumbnail')) {
-            // Hapus gambar lama jika ada
-            if ($festival->thumbnail && file_exists(public_path('assets/uploadimg/fest/' . $festival->thumbnail))) {
-                unlink(public_path('assets/uploadimg/fest/' . $festival->thumbnail));
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('thumbnail');
+            // $oldPath = public_path($anggotaPengurus->img);
+            if ($festival->thumbnail && file_exists(public_path( $festival->thumbnail))) {
+                unlink(public_path( $festival->thumbnail));
             }
-            $image = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/fest/'), $imageName);
-            $validatedData['thumbnail'] = $imageName;
+            // Simpan file baru dengan nama unik
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/fest/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            // Hapus gambar lama jika ada
+            // if ($festival->thumbnail && file_exists(public_path('assets/uploadimg/fest/' . $festival->thumbnail))) {
+            //     unlink(public_path('assets/uploadimg/fest/' . $festival->thumbnail));
+            // }
+            // $image = $request->file('thumbnail');
+            // $imageName = time() . '.' . $image->getClientOriginalExtension();
+            // $image->move(public_path('assets/uploadimg/fest/'), $imageName);
+            // $imagePath = "assets/uploadimg/pengurus/" . $fileName;
+            $validatedData['thumbnail'] = "assets/uploadimg/fest/" . $fileName;
         }
         $festival->update($validatedData);
         return redirect()->route('festad.index')->with('success', 'Festival berhasil diperbarui!');
@@ -99,8 +122,8 @@ class FestController extends Controller
     public function destroy($id)
     {
         $fest = Fest::findOrFail($id);
-        if ($fest->thumbnail && file_exists(public_path('assets/uploadimg/fest/' . $fest->thumbnail))) {
-            unlink(public_path('assets/uploadimg/fest/' . $fest->thumbnail));
+        if ($fest->thumbnail && file_exists(public_path($fest->thumbnail))) {
+            unlink(public_path( $fest->thumbnail));
         }
 
         $fest->delete();

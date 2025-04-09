@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Yajra\DataTables\Facades\DataTables;
 
 class BeritaController extends Controller
@@ -51,9 +53,16 @@ class BeritaController extends Controller
         ]);
         
         if ($request->hasFile('thumbnail')) {
-            $image = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/berita/'), $imageName);
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('thumbnail');
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/berita/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imagePath = "assets/uploadimg/berita/" . $fileName;
+            $imageName = $imagePath;
             $validatedData['thumbnail'] = $imageName;
         }
 
@@ -86,17 +95,18 @@ class BeritaController extends Controller
         ]);
         $berita = Berita::findOrFail($id);
         if ($request->hasFile('thumbnail')) {
-            // Hapus gambar lama jika ada
-            if ($berita->thumbnail && file_exists(public_path('assets/uploadimg/berita/' . $berita->thumbnail))) {
-                unlink(public_path('assets/uploadimg/berita/' . $berita->thumbnail));
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('thumbnail');
+            if ($berita->thumbnail && file_exists(public_path( $berita->thumbnail))) {
+                unlink(public_path($berita->thumbnail));
             }
-
-            // Simpan gambar baru
-            $image = $request->file('thumbnail');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/uploadimg/berita/'), $imageName);
-
-            // Tambahkan nama gambar ke data yang akan diperbarui
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/berita/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imageName = "assets/uploadimg/berita/" . $fileName;
             $validatedData['thumbnail'] = $imageName;
         }
        
@@ -108,8 +118,8 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         $berita = Berita::findOrFail($id);
-        if ($berita->thumbnail && file_exists(public_path('assets/uploadimg/berita/' . $berita->thumbnail))) {
-            unlink(public_path('assets/uploadimg/berita/' . $berita->thumbnail));
+        if ($berita->thumbnail && file_exists(public_path( $berita->thumbnail))) {
+            unlink(public_path( $berita->thumbnail));
         }
 
         // Hapus data dari database

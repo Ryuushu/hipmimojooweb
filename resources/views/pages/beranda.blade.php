@@ -241,7 +241,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                         <a href="{{ route('beranda.detail.berita', ['id' => $ber->id, 'slug' => Str::slug($ber->title)]) }}" class="text-decoration-none">
                             <div class="card-body row">
                                 <div class="col-3">
-                                    <img src="{{ url(asset('assets/uploadimg/berita/'.$ber->thumbnail)) }}" loading="lazy" alt="Gambar" style="width: 100%; height: auto;">
+                                    <img src="{{ url(asset($ber->thumbnail)) }}" loading="lazy" alt="Gambar" style="width: 100%; height: auto;">
                                 </div>
                                 <div class="col-9 ">
                                     <span class="badge rounded-pill text-bg-secondary mt-2">latest news</span>
@@ -313,7 +313,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 <div class="card-hover p-3">
                     <div class="image-box">
                         <a href="{{ $sel->url }}">
-                            <img src="{{ url(asset('assets/uploadimg/kegiatan_selesai/'.$sel->img)) }}" loading="lazy" alt="Image" class="img-fluid">
+                            <img src="{{ url(asset($sel->img)) }}" loading="lazy" alt="Image" class="img-fluid">
                         </a>
 
                     </div>
@@ -355,7 +355,7 @@ $stat4 = processStat(optional($data)->stat4, 'Pengurus Inti');
                 </div>
                 <div class="d-flex flex-wrap gap-2 mt-3">
                     @foreach ($anggota as $agt)
-                    <img src="{{ url(asset('assets/uploadimg/anggota/'.$agt->img)) }}" loading="lazy" alt="Anggota" class="rounded-circle img-anggota" width="80" height="80">
+                    <img src="{{ url(asset($agt->img)) }}" loading="lazy" alt="Anggota" class="rounded-circle img-anggota" width="80" height="80">
                     @endforeach
                 </div>
             </div>

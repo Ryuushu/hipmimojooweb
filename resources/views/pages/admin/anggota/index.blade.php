@@ -29,7 +29,7 @@
                     {
                         data: 'img',
                         render: function(data) {
-                            return `<img src="{{ url(asset('assets/uploadimg/anggota/')) }}/${data}" width="50" height="50">`;
+                            return '<img src="' + window.location.origin + '/' + data + '" width="50" height="50" loading="lazy">';
                         }
                     },
                     {

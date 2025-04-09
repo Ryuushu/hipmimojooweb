@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\AnggotaPengurus;
 use App\Models\Devisi;
 use App\Models\Divisi;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Yajra\DataTables\Facades\DataTables;
 
 class AnggotaPengurusController extends Controller
@@ -67,8 +69,18 @@ class AnggotaPengurusController extends Controller
         ]);
 
         if ($request->hasFile('img')) {
-            $imageName = time() . '.' . $request->img->extension();
-            $request->img->move(public_path(path: 'assets/uploadimg/pengurus'), $imageName);
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/pengurus/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imagePath = "assets/uploadimg/pengurus/" . $fileName;
+            $imageName = $imagePath;
+            // $imageName = time() . '.' . $request->img->extension();
+            // $request->img->move(public_path(path: 'assets/uploadimg/pengurus'), $imageName);
         } else {
             $imageName = null;
         }
@@ -102,12 +114,27 @@ class AnggotaPengurusController extends Controller
 
         $anggotaPengurus = AnggotaPengurus::find($idPengurus);
         if ($request->hasFile('img')) {
-            $imageName = time() . '.' . $request->img->extension();
-            $request->img->move(public_path(path: 'assets/uploadimg/pengurus'), $imageName);
-            $oldPath = public_path("assets/uploadimg/pengurus") . $anggotaPengurus->img;
-            if (file_exists($oldPath)) {
+            // $imageName = time() . '.' . $request->img->extension();
+            // $request->img->move(public_path(path: 'assets/uploadimg/pengurus'), $imageName);
+            // $oldPath = public_path("assets/uploadimg/pengurus") . $anggotaPengurus->img;
+            // if (file_exists($oldPath)) {
+            //     unlink($oldPath);
+            // }
+            $manager = new ImageManager(new Driver());
+            $file = $request->file('img');
+            $oldPath = public_path($anggotaPengurus->img);
+            if ($anggotaPengurus->img && file_exists($oldPath)) { // Perbaiki kurung tutup
                 unlink($oldPath);
             }
+            // Simpan file baru dengan nama unik
+            $fileName = uniqid() . '_' . time() . '.webp';
+            $imagePath = public_path('assets/uploadimg/pengurus/' . $fileName);
+            $img = $manager->read($file)
+                ->scale(width: 800)
+                ->toWebp(60);
+            $img->save($imagePath);
+            $imagePath = "assets/uploadimg/pengurus/" . $fileName;
+            $imageName = $imagePath;
         } else {
             $imageName = $anggotaPengurus->img;
         }
@@ -125,7 +152,7 @@ class AnggotaPengurusController extends Controller
     public function destroy($id, $idPengurus)
     {
         $anggotaPengurus = AnggotaPengurus::find($idPengurus);
-        $oldPath = public_path("assets/uploadimg/pengurus") . $anggotaPengurus->img;
+        $oldPath = $anggotaPengurus->img;
         if (file_exists($oldPath)) {
             unlink($oldPath);
         }

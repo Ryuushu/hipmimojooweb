@@ -36,8 +36,7 @@
                     {
                         data: 'thumbnail',
                         render: function(data) {
-
-                            return `<img src="{{ url(asset('assets/uploadimg/fest')) }}/${data}" width="50" height="50">`;
+                            return '<img src="' + window.location.origin + '/' + data + '" width="50" height="50" loading="lazy">';
                         }
                     },
                     {

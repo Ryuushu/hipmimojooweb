@@ -8,7 +8,8 @@
             <div class="mb-3">
                 <label>Thumbnail</label>
                 <br>
-                <img src="{{ url(asset('assets/uploadimg/berita/'.$berita->thumbnail)) }}" width="100" alt="Thumbnail">
+                
+                <img src="{{ url(asset($berita->thumbnail)) }}" width="100" alt="Thumbnail">
                 <input type="file" name="thumbnail" class="form-control mt-2" accept="image/*">
                 <small class="text-muted">Kosongkan jika tidak ingin mengubah gambar.</small>
                 @error('thumbnail')

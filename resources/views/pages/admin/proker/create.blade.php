@@ -32,8 +32,17 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="progress" class="form-label">Progress</label>
+                <textarea type="text" class="form-control" value="{{ old("progress") }}" id="progress" name="progress"></textarea>
+                @error("progress")
+                <small class="text-danger">
+                    {{ $message }}
+                </small>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="monitoring_evaluasi" class="form-label">Monitoring & Evaluasi</label>
-                <input type="text" class="form-control" value="{{ old("monitoring_evaluasi") }}" id="monitoring_evaluasi" name="monitoring_evaluasi">
+                <textarea type="text" class="form-control" value="{{ old("monitoring_evaluasi") }}" id="monitoring_evaluasi" name="monitoring_evaluasi"></textarea>
                 @error("monitoring_evaluasi")
                 <small class="text-danger">
                     {{ $message }}

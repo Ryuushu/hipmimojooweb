@@ -8,6 +8,7 @@
             <div class="mb-3">
                 <label class="form-label">Thumbnail</label>
                 <input type="file" name="img" value="{{ old("img") }}" class="form-control" accept="image/*">
+                <img src="{{ url(asset($pengurus->img ))}}  " width="100" class="mt-2">
                 @error("img")
                 <small class="text-danger">{{ $message }}</small>
                 @enderror

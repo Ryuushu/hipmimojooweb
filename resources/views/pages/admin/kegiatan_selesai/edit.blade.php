@@ -7,7 +7,7 @@
             <div class="mb-3">
                 <label class="form-label">Gambar</label>
                 <input type="file" name="img" class="form-control" accept="image/*">
-                <img src="{{ url(asset('assets/uploadimg/kegiatan_selesai/'.$kegiatan_selesai->img ))}}  " width="100" class="mt-2">
+                <img src="{{ url(asset($kegiatan_selesai->img ))}}  " width="100" class="mt-2">
                 @error('img')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
